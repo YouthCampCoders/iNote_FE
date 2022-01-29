@@ -1,0 +1,82 @@
+.header{
+    /* 导航栏 */
+    position: relative;
+    width: 100vw;
+    height: 100px;
+    background-color:#232946 ;
+}
+.header_container{
+    width:1200px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+}
+.logo{
+    /* Logo */
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: url('../img/logo.png') no-repeat left top;
+    background-size: 100px 100px;
+} 
+.tab{
+    position: relative;
+    display: inline-block;
+    height: 100px;
+    flex:1;
+    margin-left: 50px;
+    /* border: 1px solid palegreen; */
+}
+.tab ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.tab>ul>li{
+    text-align: right;
+	display: inline-block;
+}
+.tab>ul>li>a{
+    position: relative;
+    display: block;	/*垂直排列，且点击区域为方块*/
+    width: 133px;	/*block可设置width*/
+    text-decoration: none;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 21.33px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    top:35px;
+    margin-left: 50px;
+    /* border: 1px solid red; */
+}
+.tab ul li:nth-child(1) a{
+    margin-left: 0;
+    background: url('../img/icon/file-text.png') no-repeat 2px;
+    background-size: 30px 30px;
+}
+.tab ul li:nth-child(2) a{
+    background: url('../img/icon/bell.png') no-repeat 2px;
+    background-size: 30px 30px;
+}
+.tab ul li:nth-child(3) a{
+    background: url('../img/icon/question.png') no-repeat 2px;
+    background-size: 30px 30px;
+}
+.tab ul li:nth-child(4) a{
+    background: url('../img/icon/setting.png') no-repeat 2px;
+    background-size: 30px 30px;
+}
+.note{
+   
+}
+.avatar{
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    background-color: thistle;
+    border-radius: 25px;
+    top:25px;
+    right: 0;
+}
