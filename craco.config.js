@@ -10,5 +10,17 @@ module.exports = {
       components: resolve('src/components')
     }
   },
-  plugins: [{ plugin: CracoLessPlugin }]
+  plugins: [
+    {
+      plugin: CracoLessPlugin,
+      options: {
+        lessLoaderOptions: {
+          lessOptions: {
+            modifyVars: { '@primary-color': '#232946' },
+            javascriptEnabled: true
+          }
+        }
+      }
+    }
+  ]
 }
