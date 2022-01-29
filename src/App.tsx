@@ -2,9 +2,10 @@ import React from 'react'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 
 // 组件
-import PageAbout from 'pages/PageAbout'
 import PageHome from 'pages/PageHome'
 import PageNotFound from 'pages/PageNotFound'
+import PageFaq from 'pages/PageFaq'
+import PageSetting from 'pages/PageSetting'
 
 const App: React.FC = (props) => {
   return (
@@ -12,7 +13,8 @@ const App: React.FC = (props) => {
       <Routes>
         <Route path="/" element={<Navigate to={'/home'} />} />
         <Route path="/home" element={<PageHome />} />
-        <Route path="/about" element={<PageAbout />} />
+        <Route path="/faq" element={<PageFaq/>}/>
+        <Route path="/setting" element={<PageSetting/>}/>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
