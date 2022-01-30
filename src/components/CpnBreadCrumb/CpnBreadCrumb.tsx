@@ -14,7 +14,9 @@ const separatorImg = (
 
 const CpnBreadCrumb: React.FC = (props) => {
   return (
-    <CpnBlockContainer transStyle={{ display: 'flex', flexDirection: 'row' }}>
+    <CpnBlockContainer
+      transStyle={{ display: 'flex', flexDirection: 'row', flex: 0 }}
+    >
       <Text strong>当前位置： &emsp;</Text>
       <Breadcrumb
         separator={separatorImg}

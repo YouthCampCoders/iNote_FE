@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 
 // 组件
 import PageAbout from 'pages/PageAbout'
-import PageHome from 'pages/PageHome'
+import PageNotify from 'pages/PageNotify'
 import PageNotFound from 'pages/PageNotFound'
 import PageMyNote from 'pages/PageMyNote'
 
@@ -15,7 +15,7 @@ const App: React.FC = (props) => {
       <CpnNavBar />
       <Routes>
         <Route path="/" element={<Navigate to={'/home'} />} />
-        <Route path="/home" element={<PageHome />} />
+        <Route path="/notify" element={<PageNotify />} />
         <Route path="/about" element={<PageAbout />} />
         <Route path="/mynote" element={<PageMyNote />} />
         <Route path="*" element={<PageNotFound />} />

@@ -10,7 +10,7 @@ export interface INoteContentInfo {
   title: string
   tag: string
   editable?: boolean
-  time?: Date
+  time?: string
   light?: boolean
 }
 

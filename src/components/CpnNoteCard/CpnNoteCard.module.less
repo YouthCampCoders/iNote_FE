@@ -1,4 +1,32 @@
 .card {
   position: relative;
   margin-top: 16px;
+
+  &__time {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px;
+  }
+
+  &__edit {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    display: flex;
+
+    & :nth-child(n) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
 }
