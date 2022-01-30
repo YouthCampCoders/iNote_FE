@@ -82,7 +82,7 @@
   height: 400px;
   margin-top: 80px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 #first .second .card .left,
 #first .second .card .right {
