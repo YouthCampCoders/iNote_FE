@@ -5,7 +5,6 @@ import styles from './PageHome.module.css'
 const PageHome: React.FC = (props) => {
   return (
     <div className={styles.home_container}>
-    <Header/> 
     <div className={styles.home_main}  >
           <div className={styles.home_left}  >
              <p className={styles.note}>随笔记下</p>
