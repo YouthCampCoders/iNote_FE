@@ -8,9 +8,6 @@
     box-sizing: border-box;
     border-radius: 10px;
 }
-.history_note p{
-    
-}
 .history_note p:nth-child(1){
     font-family: Arial;
     font-style: normal;
