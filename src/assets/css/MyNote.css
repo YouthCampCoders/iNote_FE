@@ -1,0 +1,47 @@
+.history_note{
+    width: 350px;
+    margin-left: 25px;
+    /* height: auto; */
+    margin-bottom: 25px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.history_note p:nth-child(1){
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 21.33px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #232946;
+    margin-top: 25px;
+    
+
+}
+.history_note p:nth-child(2){
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    color: #232946;
+    padding-left: 25px;
+}
+.history_note p:nth-child(3){
+    margin-left: 26px;
+    width: 92px;
+    height: 32px;
+    background: #232946;
+    border-radius: 5px;
+    text-align: center;
+    padding-top:5px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+}
