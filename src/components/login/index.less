@@ -1,0 +1,260 @@
+#first{
+  .phoneLogin{
+    display:none;
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    .mask{
+      width:100%;
+      height:100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .bounce{
+      position: absolute;
+      width: 620px;
+      height: 450px;
+      left: 50%;
+      margin-left: -310px;
+      top: 140px;
+      border-radius: 5px;
+      background: rgb(255,255,254);
+      .title{
+        /* iNote Login */
+        position: absolute;
+        height: 57px;
+        left: 70px;
+        top: 40px;
+        font-size: 40.52px;
+        line-height: 58px;
+        text-align: center;
+        letter-spacing: 0.1em;
+        color: #232946;
+      }
+      .login{
+        .prompt{
+          /* 使用手机号登录时，如未注册则自动注册账号 */
+          position: absolute;
+          width: 667px;
+          height: 50px;
+          left: 110px;
+          top: 260px;
+          font-size: 18px;
+          line-height: 25px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          letter-spacing: 0.1em;
+          color: #232946;
+        }
+        .label{
+          /* 手机号标签 */
+          position: absolute;
+          width: 100px;
+          height: 64px;
+          left: 70px;
+          top: 117px;
+          font-size: 24.43px;
+          line-height: 33px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          letter-spacing: 0.1em;
+          color: #232946;
+        }
+        .code{
+          top:187px;  
+        }
+        input{
+          /* 手机号输入框 */
+          position: absolute;
+          width: 358px;
+          height: 44px;
+          left: 184px;
+          top: 127px;
+          outline:none;
+          background: #FFFFFF;
+          border: 1px solid #232946;
+          box-sizing: border-box;
+          border-radius: 10px;
+          font-size: 26px;
+          padding-left:15px;
+        }
+        .verifycode{
+          top:197px;
+          width:190px;
+        }
+        .get{
+          /* 组-获取验证码按钮 */
+          position: absolute;
+          width: 148px;
+          height: 44px;
+          left: 395px;
+          top: 197px;
+          background: #232946;
+          border-radius: 10px;
+          /* 按钮内容 */
+          font-size: 18px;
+          line-height: 44px;
+          text-align: center;
+          letter-spacing: 0.1em;
+          color: #B8C1EC;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        .submit{
+          /* 组-登陆按钮 */
+          position: absolute;
+          width: 271px;
+          height: 44px;
+          left: 183px;
+          top: 330px;
+          background: #232946;
+          border-radius: 10px;
+          font-size: 22px;
+          line-height: 33px;
+          align-items: center;
+          text-align: center;
+          letter-spacing: 0.1em;
+          color: #B8C1EC;
+        }
+        .other{
+          /* 其他方式登陆？ */
+          position: absolute;
+          width: 667px;
+          height: 50px;
+          top: 394px;
+          left:-12px;
+          font-size: 18px;
+          line-height: 25px;
+          text-align: center;
+          letter-spacing: 0.1em;
+          text-decoration-line: underline;
+          color: #232946;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+      }
+      .otherLogin{
+        display: none;
+        .label{
+          /* 手机号标签 */
+          position: absolute;
+          width: 100px;
+          height: 64px;
+          left: 70px;
+          top: 117px;
+          font-size: 24.43px;
+          line-height: 33px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          letter-spacing: 0.1em;
+          color: #232946;
+        }
+        .code{
+          top:187px;  
+        }
+        .otherWe{
+          top:257px;
+        }
+        input{
+          /* 手机号输入框 */
+          position: absolute;
+          width: 358px;
+          height: 44px;
+          left: 184px;
+          top: 127px;
+          outline:none;
+          background: #FFFFFF;
+          border: 1px solid #232946;
+          box-sizing: border-box;
+          border-radius: 10px;
+          font-size: 26px;
+          padding-left:15px;
+        }
+        .password{
+          top:197px;
+        }
+        .submit{
+          /* 组-登陆按钮 */
+          position: absolute;
+          width: 271px;
+          height: 44px;
+          left: 183px;
+          top: 335px;
+          background: #232946;
+          border-radius: 10px;
+          font-size: 22px;
+          line-height: 33px;
+          align-items: center;
+          text-align: center;
+          letter-spacing: 0.1em;
+          color: #B8C1EC;
+        }
+        img{
+          position:absolute;
+          width:40px;
+          height:40px;
+          top:265px;
+          left:190px;
+        }
+        .other{
+          /* 手机号登陆？ */
+          position: absolute;
+          width: 667px;
+          height: 50px;
+          top: 394px;
+          left:-12px;
+          font-size: 18px;
+          line-height: 25px;
+          text-align: center;
+          letter-spacing: 0.1em;
+          text-decoration-line: underline;
+          color: #232946;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+      }
+      .wechatLogin{
+        display: none;
+        img{
+          width:185px;
+          height:185px;
+          background: rgb(196,196,196);
+          position:absolute;
+          top:50%;
+          left: 50%;
+          margin:-92.5px 0 0 -92.5px;
+        }
+        .prompt{
+          /* 打开微信 -> 扫一扫 */
+          position: absolute;
+          top: 355px;
+          left:50%;
+          margin-left: -85px;
+          width: 300px;
+          height: 29.86px;
+          font-size: 20.33px;
+          color: rgba(35, 41, 70, 0.6);
+        }
+        .other{
+          position: absolute;
+          width: 667px;
+          height: 50px;
+          top: 396px;
+          left:-18px;
+          font-size: 18px;
+          font-weight: bolder;
+          text-align: center;
+          letter-spacing: 0.1em;
+          text-decoration-line: underline;
+          color: #232946;
+        }
+      }
+    }
+  }
+}
