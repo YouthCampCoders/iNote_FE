@@ -55,13 +55,20 @@ const EditBlock = () => {
 }
 
 const CpnNoteCard: React.FC<ICpnNoteCardProps> = (props) => {
-  const { content, title, time, editable, tag, light } = props
+  const { content, title, time, editable, tag, light, topGup, bottomGup } =
+    props
+  const cardTopGup = topGup ? '16px' : '0'
+  const cardBottomGup = bottomGup ? '16px' : '0'
 
   headStyle.backgroundColor = bodyStyle.backgroundColor = light
     ? '#fff'
     : '#F2F7FC'
+
   return (
-    <div className={style['card']}>
+    <div
+      className={style['card']}
+      style={{ marginTop: cardTopGup, marginBottom: cardBottomGup }}
+    >
       <Card
         hoverable
         title={title}
