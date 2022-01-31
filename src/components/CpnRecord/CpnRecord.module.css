@@ -1,0 +1,37 @@
+.information{
+    margin: 0 auto;
+    margin-top: 117px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center; 
+    letter-spacing: 0.1em;
+    color: #000000;
+}
+.information p{
+    margin-bottom: 0;
+}
+.icon{
+    position: relative;
+}
+.icon img:first-child{
+     left:54px;
+}
+.icon img:nth-child(2){
+    left:136px;
+}
+.icon img:nth-child(3){
+    left:217px;
+}
+.icon img:nth-child(4){
+    left:300px;
+}
+.icon img{
+   position: absolute;
+   display: inline-block;
+   width:50px ;
+   height: 50px;
+   top:34px; 
+} 

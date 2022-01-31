@@ -1,6 +1,5 @@
 .home_container{
-    width:100vw;
-    height:100vh;
+    height:calc(100vh - 75px);
     background-color: #E5E5E5;
 }
 .home_main{
@@ -9,8 +8,7 @@
     align-content: center;
     width: 1200px;
     margin: 0 auto;
-    margin-top: 25px;
-    /* border:1px solid black;    */
+   padding-top: 25px; 
 }
 .home_left{
     width: 775px;
@@ -18,7 +16,7 @@
     background: #FFFFFE;
     box-shadow: 30px 30px 70px rgba(0, 0, 0, 0.04), 3.8px 3.8px 8.8px rgba(0, 0, 0, 0.02);
     border-radius: 20px;
-    /* border:1px solid #ff4400;    */
+    min-height: 340px;
 }
 .note{
     /* 随笔记下 */
@@ -83,49 +81,12 @@
     margin-top: 24px;
     width: 400px;
     height: 257px;
-    border: 1px solid gray; 
     flex:0 0 auto;
     background: #FFFFFE;
     box-shadow: 30px 30px 70px rgba(0, 0, 0, 0.04), 3.8px 3.8px 8.8px rgba(0, 0, 0, 0.02);
     border-radius: 20px;
 }
-.information{
-    margin: 0 auto;
-    margin-top: 117px;
-    font-family: Arial;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 32px;
-    text-align: center; 
-    letter-spacing: 0.1em;
-    color: #000000;
-}
-.information p{
-    margin-bottom: 0;
-}
-.icon{
-    position: relative;
-}
-.icon img:first-child{
-     left:54px;
-}
-.icon img:nth-child(2){
-    left:136px;
-}
-.icon img:nth-child(3){
-    left:217px;
-}
-.icon img:nth-child(4){
-    left:300px;
-}
-.icon img{
-   position: absolute;
-   display: inline-block;
-   width:50px ;
-   height: 50px;
-   top:34px; 
-} 
+
 .list{
     margin-left:25px;
     padding-top:17.74px;

@@ -5,7 +5,7 @@ import store from './store'
 
 // 组件
 import PageNotify from 'pages/PageNotify'
-import PageHome from 'pages/PageHome/PageHome'
+import PageHome from 'pages/PageHome'
 import PageNotFound from 'pages/PageNotFound'
 import PageFaq from 'pages/PageFaq'
 import PageSetting from 'pages/PageSetting'
