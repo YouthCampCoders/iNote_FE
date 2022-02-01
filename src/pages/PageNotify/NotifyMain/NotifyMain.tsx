@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CpnBlockContainer from 'components/CpnBlockContainer'
 import CpnNoteCard from 'components/CpnNoteCard'
 import style from './NotifyMain.module.less'
 import timeParser from 'utils/timeParser'
+import NotifyModal from './NotifyModal'
+import NotifyTimerPicker from './NotifyTimerPicker'
 
 const testList = new Array(10).fill(0)
 
 const NotifyMain: React.FC = (props) => {
+  const [modVisible, setModVisible] = useState(false)
+  const [delVisibleD, setDelVisible] = useState(false)
+  const close = (cancleFn: any) => () => cancleFn(false)
+
   return (
     <CpnBlockContainer
       transStyle={{ flex: 1, display: 'flex', flexDirection: 'column' }}
@@ -21,9 +27,25 @@ const NotifyMain: React.FC = (props) => {
             editable
             bottomGup
             key={index}
+            onModify={() => setModVisible(true)}
+            onDelete={() => setDelVisible(true)}
           />
         ))}
       </div>
+      <NotifyModal
+        title="请选择下一次修改的时间"
+        visible={modVisible}
+        onCancel={close(setModVisible)}
+      >
+        <NotifyTimerPicker onOk={(value) => console.log(value)} />
+      </NotifyModal>
+      <NotifyModal
+        title="是否取消推送"
+        visible={delVisibleD}
+        onCancel={close(setDelVisible)}
+      >
+        确认后不再接收该笔记的推送
+      </NotifyModal>
     </CpnBlockContainer>
   )
 }

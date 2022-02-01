@@ -3,6 +3,7 @@ import CpnBlockContainer from 'components/CpnBlockContainer'
 import NoteContentListGenerator from './NoteContentListGenerator'
 import NoteTagListGenerator from './NoteTagListGenerator'
 import { Typography } from 'antd'
+// import { test } from 'services/mynote'
 
 const { Text } = Typography
 const NoteTagInfo = [
@@ -15,6 +16,7 @@ const NoteTagInfo = [
     list: ['2022', '2021']
   }
 ]
+
 const NoteContentInfo = new Array(11).fill({
   title: '我在INote的第一篇笔记',
   content: '第一次在iNote记笔记，感觉还不错哎！',
@@ -30,7 +32,7 @@ const MyNoteMain: React.FC = (props) => {
     <CpnBlockContainer
       transStyle={{ flex: 1, display: 'flex', flexDirection: 'column' }}
     >
-      <Text strong>筛选标题</Text>
+      <Text strong /*onClick={() => test(15797900820)}*/>筛选标题</Text>
       <NoteTagListGenerator
         indexList={indexList}
         setIndexList={setIndexList}

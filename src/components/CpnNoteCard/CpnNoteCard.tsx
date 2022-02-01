@@ -33,13 +33,14 @@ const TimeBlock = (time?: string) => {
   )
 }
 
-const EditBlock = () => {
+const EditBlock = (onModify: any, onDelete: any) => {
   return (
     <div className={style['card__edit']}>
       <Button
         icon={<img src="img/edit.svg" alt="" />}
         type="text"
         style={{ color: '#232946', fontWeight: 700 }}
+        onClick={onModify}
       >
         修改时间
       </Button>
@@ -47,6 +48,7 @@ const EditBlock = () => {
         icon={<img src="img/delete.svg" alt="" />}
         type="text"
         style={{ color: '#D81E06', fontWeight: 700 }}
+        onClick={onDelete}
       >
         取消推送
       </Button>
@@ -55,8 +57,18 @@ const EditBlock = () => {
 }
 
 const CpnNoteCard: React.FC<ICpnNoteCardProps> = (props) => {
-  const { content, title, time, editable, tag, light, topGup, bottomGup } =
-    props
+  const {
+    content,
+    title,
+    time,
+    editable,
+    tag,
+    light,
+    topGup,
+    bottomGup,
+    onModify,
+    onDelete
+  } = props
   const cardTopGup = topGup ? '16px' : '0'
   const cardBottomGup = bottomGup ? '16px' : '0'
 
@@ -81,7 +93,7 @@ const CpnNoteCard: React.FC<ICpnNoteCardProps> = (props) => {
           {`#${tag}`}
         </Button>
         {time && TimeBlock(time)}
-        {editable && EditBlock()}
+        {editable && EditBlock(onModify, onDelete)}
       </Card>
     </div>
   )

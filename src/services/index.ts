@@ -11,11 +11,10 @@ if (!uuid) {
 
 const _Request = new Request({
   baseURL,
-  timeout: 1000,
+  timeout: 10000,
   headers: {
     'x-tt-session-v2': uuid
   }
 })
-
 
 export default _Request
