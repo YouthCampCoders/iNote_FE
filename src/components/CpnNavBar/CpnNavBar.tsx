@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import usePathChange from './hooks/usePathChange'
+import useBreadChange from './hooks/useBreadChange'
 
 import { navConfig } from './config/navList'
 import style from './CpnNavBar.module.less'
@@ -10,13 +11,16 @@ const navList = navConfig
 const CpnNavBar: React.FC = (props) => {
   const navigate = useNavigate()
   const current = usePathChange()
-
   const currentNavChange = (to: string) => navigate(to)
 
+  useBreadChange()
   return current >= 0 ? (
     <div className={style['navbar']}>
       <ul className={style['navbar__list']}>
-        <li className={style['navbar__logo']}>
+        <li
+          className={style['navbar__logo']}
+          onClick={() => currentNavChange('/home')}
+        >
           <img src="img/logo.png" alt="" />
         </li>
         {/* 导航列表 */}
