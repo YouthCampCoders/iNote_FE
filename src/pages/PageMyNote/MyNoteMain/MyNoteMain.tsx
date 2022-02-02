@@ -28,6 +28,9 @@ const MyNoteMain: React.FC = (props) => {
   const [indexList, setIndexList] = useState(
     new Array(NoteTagInfo.length).fill(0)
   )
+
+  
+
   return (
     <CpnBlockContainer
       transStyle={{ flex: 1, display: 'flex', flexDirection: 'column' }}
