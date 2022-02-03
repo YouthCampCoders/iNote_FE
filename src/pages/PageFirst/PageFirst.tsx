@@ -3,28 +3,24 @@ import './index.less'
 import CpnLogin from 'components/CpnLogin'
 import illustration from 'assets/images/PageFirst/illustration.png'
 import icon from 'assets/images/PageFirst/icon.png'
+import { useState } from 'react'
 
 const PageFirst: React.FC = (props) => {
-  let bounce = function () {
-    let start: any = document.querySelector('.phoneLogin')
-    start.style.display = 'block'
-    // 将滚动条滚至顶端
-    window.scrollTo(0, 0)
-    document.documentElement.style.overflow = 'hidden'
-  }
+  const [loginSHow, setLoginShow] = useState(false)
+
   return (
     <div id="first">
       <div className="first">
         <div className="text">
           <span className="inote">iNote</span>
           <span className="slogan">You Note, We Code!</span>
-          <button className="button" onClick={bounce}>
+          <button className="button" onClick={() => setLoginShow(true)}>
             Get Start
           </button>
         </div>
         <img className="illustration" src={illustration} alt="" />
       </div>
-      <CpnLogin />
+      {loginSHow ? <CpnLogin /> : ''}
       <div className="second">
         <span className="slogan">You Note, We Code!</span>
         <span className="show">
