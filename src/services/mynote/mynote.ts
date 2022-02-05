@@ -9,10 +9,12 @@ import request from 'services'
  * functionName 获取所有笔记
  * method get
  */
-export const getNoteList = () => {
+export const getNoteList = (year: string, tag: string) => {
   return new Promise<INoteListItemResult[]>(async (resolve, reject) => {
+    const paramY = year.length ? `year=${year}&` : ''
+    const paramT = tag.length ? `tag=${tag}&` : ''
     const res = await request.get<INoteListItemRootResult>({
-      url: 'note'
+      url: 'note?' + paramY + paramT
     })
     // 返回数据
     res.success && resolve(res.list)

@@ -8,7 +8,7 @@ const defaultState = {
 export default function reducer(state = defaultState, action: any) {
   switch (action.type) {
     case actionTypes.GET_NOTELIST:
-      return { ...state, NoteList: action.noteList }
+      return { ...state, noteList: action.noteList }
     default:
       return state
   }

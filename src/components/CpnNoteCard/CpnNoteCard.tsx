@@ -64,13 +64,15 @@ const CpnNoteCard: React.FC<ICpnNoteCardProps> = (props) => {
     editable,
     tag,
     light,
-    topGup,
-    bottomGup,
+    // topGup,
+    // bottomGup,
     onModify,
     onDelete
   } = props
-  const cardTopGup = topGup ? '16px' : '0'
-  const cardBottomGup = bottomGup ? '16px' : '0'
+  // const cardTopGup = topGup ? '16px' : '16px'
+  const cardTopGup = '16px'
+  // const cardBottomGup = bottomGup ? '16px' : '0'
+  const cardBottomGup = '0'
 
   headStyle.backgroundColor = bodyStyle.backgroundColor = light
     ? '#fff'
@@ -88,7 +90,7 @@ const CpnNoteCard: React.FC<ICpnNoteCardProps> = (props) => {
         headStyle={{ ...headStyle }}
         bodyStyle={{ ...bodyStyle } as React.CSSProperties}
       >
-        <Text>{content}</Text>
+        <Text ellipsis>{content}</Text>
         <Button type="primary" style={buttonStyle}>
           {`#${tag}`}
         </Button>

@@ -2,7 +2,7 @@ import Request from './baseRequest'
 import { nanoid } from 'nanoid'
 import cache from 'utils/cache'
 
-const baseURL = 'https://qc6gzw.app.cloudendpoint.cn/'
+const baseURL = 'https://qcq5h7.app.cloudendpoint.cn/'
 
 const uuid = cache.getCache('__uuid__')
 if (!uuid) {

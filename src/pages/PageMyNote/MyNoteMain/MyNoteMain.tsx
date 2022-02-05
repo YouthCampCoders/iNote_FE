@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CpnBlockContainer from 'components/CpnBlockContainer'
 import NoteContentListGenerator from './NoteContentListGenerator'
 import NoteTagListGenerator from './NoteTagListGenerator'
 import { Typography } from 'antd'
+import { useSelector, shallowEqual } from 'react-redux'
+import { IRootState } from 'store/type'
+import { INoteListItemRootResult } from 'services/type'
 // import { test } from 'services/mynote'
 
 const { Text } = Typography
@@ -17,19 +20,18 @@ const NoteTagInfo = [
   }
 ]
 
-const NoteContentInfo = new Array(11).fill({
-  title: '我在INote的第一篇笔记',
-  content: '第一次在iNote记笔记，感觉还不错哎！',
-  tag: '随笔记录',
-  topGup: true
-})
-
 const MyNoteMain: React.FC = (props) => {
   const [indexList, setIndexList] = useState(
     new Array(NoteTagInfo.length).fill(0)
   )
 
-  
+  const { list } = useSelector<IRootState, INoteListItemRootResult>(
+    (state) => ({
+      list: state.myNote.noteList,
+      success: state.myNote.success
+    }),
+    shallowEqual
+  )
 
   return (
     <CpnBlockContainer
@@ -41,7 +43,7 @@ const MyNoteMain: React.FC = (props) => {
         setIndexList={setIndexList}
         NoteTagInfo={NoteTagInfo}
       />
-      <NoteContentListGenerator NoteContentInfo={NoteContentInfo} />
+      <NoteContentListGenerator NoteContentInfo={list} />
     </CpnBlockContainer>
   )
 }

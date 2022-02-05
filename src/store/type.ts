@@ -1,6 +1,6 @@
 import { INavBarStore } from 'components/CpnNavBar/store/type'
 
 export interface IRootState {
-  mynote: any
+  myNote: any
   navPath: INavBarStore
 }

@@ -44,6 +44,7 @@ export interface INoteListItemResult {
   content: string
   needPush: boolean
   author: string
+  tag: string
   createdAt: Date
   updatedAt: Date
 }
