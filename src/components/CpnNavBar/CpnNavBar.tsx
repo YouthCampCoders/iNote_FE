@@ -2,8 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import usePathChange from './hooks/usePathChange'
 import useBreadChange from './hooks/useBreadChange'
-
 import { navConfig } from './config/navList'
+import CpnNavBarAvatarMenu from './CpnNavBarAvatarMenu'
 import style from './CpnNavBar.module.less'
 
 const navList = navConfig
@@ -42,10 +42,7 @@ const CpnNavBar: React.FC = (props) => {
           </li>
         ))}
         <li className={style['navbar__avatar']}>
-          <img
-            src="https://lf-cdn-tos.bytescm.com/obj/static/xitu_extension/static/gold.981a5510.svg"
-            alt=""
-          />
+          <CpnNavBarAvatarMenu />
         </li>
       </ul>
     </div>

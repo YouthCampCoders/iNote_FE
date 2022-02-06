@@ -1,0 +1,1 @@
+export const GET_PUSHNOTELIST = 'GET_PUSHNOTELIST'

@@ -22,6 +22,20 @@ export const getNoteList = (year: string, tag: string) => {
 }
 
 /**
+ * functionName 获取需要推送的笔记
+ * method get
+ */
+export const getPushNoteList = () => {
+  return new Promise<boolean>(async (resolve, reject) => {
+    const res = await request.get<IBaseResult>({
+      url: 'push'
+    })
+    console.log(res)
+    resolve(res.success)
+  })
+}
+
+/**
  * functionName 新增笔记
  * method post
  * body

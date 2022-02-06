@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CpnBlockContainer from 'components/CpnBlockContainer'
 import CpnNoteCard from 'components/CpnNoteCard'
-import style from './NotifyMain.module.less'
 import timeParser from 'utils/timeParser'
 import NotifyModal from './NotifyModal'
 import NotifyTimerPicker from './NotifyTimerPicker'
+import { useDispatch } from 'react-redux'
+import { getPushNoteListAction } from '../store/actionCreators'
+import style from './NotifyMain.module.less'
 
 const testList = new Array(10).fill(0)
 
@@ -12,6 +14,11 @@ const NotifyMain: React.FC = (props) => {
   const [modVisible, setModVisible] = useState(false)
   const [delVisibleD, setDelVisible] = useState(false)
   const close = (cancleFn: any) => () => cancleFn(false)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getPushNoteListAction())
+  }, [dispatch])
 
   return (
     <CpnBlockContainer

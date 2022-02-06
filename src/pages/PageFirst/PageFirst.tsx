@@ -1,12 +1,23 @@
 import React from 'react'
-import './index.less'
 import CpnLogin from 'components/CpnLogin'
 import illustration from 'assets/images/PageFirst/illustration.png'
 import icon from 'assets/images/PageFirst/icon.png'
 import { useState } from 'react'
+import cache from 'utils/cache'
+import './index.less'
+import { useNavigate } from 'react-router-dom'
 
 const PageFirst: React.FC = (props) => {
   const [loginSHow, setLoginShow] = useState(false)
+  const navigate = useNavigate()
+
+  const getStart = () => {
+    if (cache.getCache('__userinfo__')) {
+      navigate('/home')
+    } else {
+      setLoginShow(true)
+    }
+  }
 
   return (
     <div id="first">
@@ -14,7 +25,7 @@ const PageFirst: React.FC = (props) => {
         <div className="text">
           <span className="inote">iNote</span>
           <span className="slogan">You Note, We Code!</span>
-          <button className="button" onClick={() => setLoginShow(true)}>
+          <button className="button" onClick={getStart}>
             Get Start
           </button>
         </div>

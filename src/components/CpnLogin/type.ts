@@ -12,5 +12,5 @@ export interface IUserLoginProps {
   password: string
   setUsername: Dispatch<SetStateAction<string>>
   setPassword: Dispatch<SetStateAction<string>>
-  setCur: Dispatch<SetStateAction<boolean>>
+  setCur: Dispatch<SetStateAction<number>>
 }

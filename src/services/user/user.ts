@@ -4,6 +4,7 @@ import {
   IUserLoginRootResult,
   IUserLoginResult
 } from 'services/type'
+import cache from 'utils/cache'
 
 /**
  * functionName 获取手机验证码
@@ -11,10 +12,10 @@ import {
  * params
  *  phoneNumber: 手机号
  */
-export const getPhoneValidCode = () => {
+export const getPhoneValidCode = (phone: number | string) => {
   return new Promise<boolean>(async (resolve, reject) => {
     const res = await request.get<IBaseResult>({
-      url: 'user/sendMessage'
+      url: `user/sendMessage?phoneNumber=${phone}`
     })
     resolve(res.success)
   })
@@ -27,12 +28,21 @@ export const getPhoneValidCode = () => {
  *  phoneNumber: 手机号
  *  code: 验证码
  */
-export const loginWithPhone = () => {
-  return new Promise<IUserLoginResult>(async (resolve, reject) => {
+export const loginWithPhone = (
+  phone: string | number,
+  code: string | number
+) => {
+  return new Promise<boolean>(async (resolve, reject) => {
     const res = await request.post<IUserLoginRootResult>({
-      url: 'user/phoneLogin'
+      url: 'user/phoneLogin',
+      data: {
+        phoneNumber: phone,
+        code
+      }
     })
-    resolve(res.userInfo)
+
+    res.success && cache.setCache('__userinfo__', res.userInfo)
+    resolve(res.success)
   })
 }
 
@@ -61,6 +71,7 @@ export const logout = () => {
     const res = await request.post<IBaseResult>({
       url: 'user/logout'
     })
+    res.success && cache.clearCache()
     resolve(res.success)
   })
 }

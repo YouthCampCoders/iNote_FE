@@ -1,5 +1,7 @@
+import { message } from 'antd'
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+import cache from 'utils/cache'
 
 /*
  * usePathChange 路由守卫 hook
@@ -9,6 +11,7 @@ const indexList = ['/mynote', '/notify', '/faq', '/setting', '/home']
 
 export default function usePathChange(): number {
   const location = useLocation()
+  const navigate = useNavigate()
   const [current, setCurrent] = useState(-1)
 
   useEffect(() => {
@@ -17,7 +20,11 @@ export default function usePathChange(): number {
     pathType = indexList.indexOf(location.pathname)
     // 设置当前的 Navbar 索引为 pathType
     setCurrent(pathType)
-  }, [location.pathname])
+    if (location.pathname !== '/first' && !cache.getCache('__userinfo__')) {
+      navigate('/first')
+      message.warning('请先登录~')
+    }
+  }, [location.pathname, navigate])
 
   return current
 }
