@@ -19,7 +19,7 @@ export const getNoteList = (year: string, tag: string, needPush?: boolean) => {
       url: 'note?' + paramY + paramT + paramN
     })
     // 返回数据
-    // console.log(res.list)
+    console.log(res.list)
     res.success && resolve(res.list)
   })
 }
@@ -102,6 +102,28 @@ export const cancleNotePush = (id: string) => {
   return new Promise<boolean>(async (resolve, reject) => {
     const res = await request.delete<IBaseResult>({
       url: `note/push/${id}`
+    })
+    resolve(res.success)
+  })
+}
+
+/**
+ * functionName 修改笔记推送时间
+ * method put
+ * params
+ *  id: 笔记 id
+ * body
+ *  id: 笔记 id
+ *  date: 修改后的时间
+ */
+export const modifyNotePushTime = (id: string, date: string) => {
+  return new Promise<boolean>(async (resolve, reject) => {
+    const res = await request.post<IBaseResult>({
+      url: `note/push/${id}`,
+      data: {
+        id,
+        date
+      }
     })
     resolve(res.success)
   })

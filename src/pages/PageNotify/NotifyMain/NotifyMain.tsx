@@ -7,7 +7,7 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { getPushNoteListAction } from '../store/actionCreators'
 import { IRootState } from 'store/type'
 import { INoteListItemRootResult } from 'services/type'
-import { cancleNotePush } from 'services/mynote'
+import { cancleNotePush, modifyNotePushTime } from 'services/mynote'
 import style from './NotifyMain.module.less'
 import { message } from 'antd'
 
@@ -18,6 +18,7 @@ const NotifyMain: React.FC = (props) => {
   const [delVisibleD, setDelVisible] = useState(false)
   // 当前操作的对象
   const [target, setTarget] = useState('')
+  const [time, setTime] = useState('')
   //
   const close = (cancleFn: any) => () => {
     cancleFn(false)
@@ -40,7 +41,7 @@ const NotifyMain: React.FC = (props) => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getPushNoteListAction())
-  }, [dispatch, target])
+  }, [dispatch, target, time])
 
   return (
     <CpnBlockContainer
@@ -57,8 +58,16 @@ const NotifyMain: React.FC = (props) => {
         title="请选择下一次修改的时间"
         visible={modVisible}
         onCancel={close(setModVisible)}
+        onOk={async () => {
+          if (time.length) {
+            const res = await modifyNotePushTime(target, time)
+            res ? message.success('修改成功') : message.error('修改失败')
+          }
+          close(setModVisible)()
+          setTime('')
+        }}
       >
-        <NotifyTimerPicker onOk={(value) => console.log(value)} />
+        <NotifyTimerPicker onOk={(moment) => setTime(moment.toString())} />
       </NotifyModal>
       <NotifyModal
         title="是否取消推送"
