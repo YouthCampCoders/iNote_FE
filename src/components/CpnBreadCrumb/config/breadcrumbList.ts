@@ -1,6 +1,7 @@
 import { BreadcrumbList } from '../type'
 
 export const BreadcrumbConfig: BreadcrumbList[] = [
+  {title: '首页', to: '/home'},
   { title: '我的笔记', to: '/mynote' },
   { title: '笔记提醒', to: '/notify' },
   { title: '常见问题', to: '/faq' },
