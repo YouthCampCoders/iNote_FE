@@ -1,7 +1,8 @@
 import React from 'react'
 import CpnLogin from 'components/CpnLogin'
 import illustration from 'assets/images/PageFirst/illustration.png'
-import icon from 'assets/images/PageFirst/icon.png'
+import iconGraphic from 'assets/images/PageFirst/icon-graphic.png'
+import iconWrite from 'assets/images/PageFirst/icon-write.png'
 import { useState } from 'react'
 import cache from 'utils/cache'
 import './index.less'
@@ -33,24 +34,21 @@ const PageFirst: React.FC = (props) => {
       </div>
       {loginSHow ? <CpnLogin /> : ''}
       <div className="second">
-        <span className="slogan">You Note, We Code!</span>
-        <span className="show">
-          You Note, We Code!You Note, We Code!You Note, We Code!You Note, We
-          Code!
-        </span>
+        <p className="slogan">You Note, We Code!</p>
+        <p className="show">你的笔记不只是笔记，更是你的外脑。尽情书写，剩下的交给我们！</p>
         <div className="card">
           <div className="left">
-            <img src={icon} alt="" className="icon" />
+            <img src={ iconGraphic } alt="" className="icon" />
             <span className="abin">艾宾浩斯遗忘曲线</span>
             <div className="content">
-              配合艾宾浩斯遗忘曲线进行推送配合艾宾浩斯遗忘曲线进行推送配合艾宾浩斯遗忘曲线进行推送配合艾宾浩斯遗忘曲线进行推送配合艾宾浩斯遗忘曲线进行推送配合艾宾浩斯遗忘曲线进行推送配合
+              书写下的笔记不应该书写完就去吃灰，iNote结合艾宾浩斯遗忘曲线规律进行笔记推送，让你的笔记不只存在于iNote，更存在于你的大脑！
             </div>
           </div>
           <div className="right">
-            <img src={icon} alt="" className="icon" />
-            <span className="abin">艾宾浩斯遗忘曲线</span>
+            <img src={ iconWrite } alt="" className="icon" />
+            <span className="abin">沉浸笔记书写体验</span>
             <div className="content">
-              配合艾宾浩斯遗忘曲线进行推送配合艾宾浩斯遗忘曲线进行推送配合艾宾浩斯遗忘曲线进行推送配合艾宾浩斯遗忘曲线进行推送配合艾宾浩斯遗忘曲线进行推送配合艾宾浩斯遗忘曲线进行推送配合
+              完善的编辑器让你在书写时能够无需关心其他的事情，沉浸于自己的思路。源于Typora，不止于Typora！完美支持md语法，让你的书写更加流畅！
             </div>
           </div>
         </div>
