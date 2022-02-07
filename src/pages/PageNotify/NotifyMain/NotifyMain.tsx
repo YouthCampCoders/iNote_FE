@@ -40,7 +40,9 @@ const NotifyMain: React.FC = (props) => {
 
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getPushNoteListAction())
+    if (!target && !time) {
+      dispatch(getPushNoteListAction())
+    }
   }, [dispatch, target, time])
 
   return (
@@ -67,7 +69,11 @@ const NotifyMain: React.FC = (props) => {
           setTime('')
         }}
       >
-        <NotifyTimerPicker onOk={(moment) => setTime(moment.toString())} />
+        <NotifyTimerPicker
+          onOk={(moment) => {
+            setTime(moment.toString())
+          }}
+        />
       </NotifyModal>
       <NotifyModal
         title="是否取消推送"

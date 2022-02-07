@@ -11,7 +11,11 @@ import style from './CpnBreadCrumb.module.less'
 
 const { Text } = Typography
 const separatorImg = (
-  <img src="img/right.svg" alt="" style={{ width: '16px', height: '16px' }} />
+  <img
+    src={'/img/right.svg'}
+    alt=""
+    style={{ width: '16px', height: '16px' }}
+  />
 )
 
 const CpnBreadCrumb: React.FC = (props) => {
