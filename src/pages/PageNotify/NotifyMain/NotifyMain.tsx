@@ -1,43 +1,57 @@
 import React, { useEffect, useState } from 'react'
-import CpnBlockContainer from 'components/CpnBlockContainer'
-import CpnNoteCard from 'components/CpnNoteCard'
-import timeParser from 'utils/timeParser'
 import NotifyModal from './NotifyModal'
 import NotifyTimerPicker from './NotifyTimerPicker'
-import { useDispatch } from 'react-redux'
+import NotifyListGenerator from './NotifyListGenerator'
+import CpnBlockContainer from 'components/CpnBlockContainer'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { getPushNoteListAction } from '../store/actionCreators'
+import { IRootState } from 'store/type'
+import { INoteListItemRootResult } from 'services/type'
+import { cancleNotePush } from 'services/mynote'
 import style from './NotifyMain.module.less'
+import { message } from 'antd'
 
-const testList = new Array(10).fill(0)
+// const testList = new Array(10).fill(0)
 
 const NotifyMain: React.FC = (props) => {
   const [modVisible, setModVisible] = useState(false)
   const [delVisibleD, setDelVisible] = useState(false)
-  const close = (cancleFn: any) => () => cancleFn(false)
-  const dispatch = useDispatch()
+  // 当前操作的对象
+  const [target, setTarget] = useState('')
+  //
+  const close = (cancleFn: any) => () => {
+    cancleFn(false)
+    setTarget('')
+  }
+  // 进行操作时更改操作对象
+  const operate = (operateFn: any) => (id: string) => () => {
+    operateFn(true)
+    setTarget(id)
+  }
 
+  const { list } = useSelector<IRootState, INoteListItemRootResult>(
+    (state) => ({
+      list: state.notify.noteList,
+      success: state.notify.success
+    }),
+    shallowEqual
+  )
+
+  const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getPushNoteListAction())
-  }, [dispatch])
+  }, [dispatch, target])
 
   return (
     <CpnBlockContainer
       transStyle={{ flex: 1, display: 'flex', flexDirection: 'column' }}
     >
       <div className={style['noteList']}>
-        {testList.map((_, index) => (
-          <CpnNoteCard
-            title="你好"
-            tag="2022"
-            time={timeParser(+new Date())}
-            content="简单的标题"
-            editable
-            bottomGup
-            key={index}
-            onModify={() => setModVisible(true)}
-            onDelete={() => setDelVisible(true)}
-          />
-        ))}
+        <NotifyListGenerator
+          list={list}
+          onDelete={operate(setDelVisible)}
+          onModify={operate(setModVisible)}
+        />
       </div>
       <NotifyModal
         title="请选择下一次修改的时间"
@@ -50,6 +64,11 @@ const NotifyMain: React.FC = (props) => {
         title="是否取消推送"
         visible={delVisibleD}
         onCancel={close(setDelVisible)}
+        onOk={async () => {
+          const res = await cancleNotePush(target)
+          res ? message.success('取消成功') : message.error('取消失败')
+          close(setDelVisible)()
+        }}
       >
         确认后不再接收该笔记的推送
       </NotifyModal>

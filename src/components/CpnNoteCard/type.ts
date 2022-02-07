@@ -11,6 +11,7 @@ import { MouseEventHandler } from 'react'
 export interface ICpnNoteCardProps {
   content: string
   title: string
+  id: string
   tag: string
   editable?: boolean
   time?: string

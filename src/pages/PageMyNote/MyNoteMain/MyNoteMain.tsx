@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import CpnBlockContainer from 'components/CpnBlockContainer'
 import NoteContentListGenerator from './NoteContentListGenerator'
 import NoteTagListGenerator from './NoteTagListGenerator'
@@ -6,13 +6,12 @@ import { Typography } from 'antd'
 import { useSelector, shallowEqual } from 'react-redux'
 import { IRootState } from 'store/type'
 import { INoteListItemRootResult } from 'services/type'
-// import { test } from 'services/mynote'
 
 const { Text } = Typography
 const NoteTagInfo = [
   {
     title: '按标签分',
-    list: ['随笔记录', '日常生活', '读书笔记']
+    list: ['未分类', '随笔记录', '日常生活', '读书笔记']
   },
   {
     title: '按年份分',
@@ -37,7 +36,7 @@ const MyNoteMain: React.FC = (props) => {
     <CpnBlockContainer
       transStyle={{ flex: 1, display: 'flex', flexDirection: 'column' }}
     >
-      <Text strong /*onClick={() => test(15797900820)}*/>筛选标题</Text>
+      <Text strong>筛选标题</Text>
       <NoteTagListGenerator
         indexList={indexList}
         setIndexList={setIndexList}

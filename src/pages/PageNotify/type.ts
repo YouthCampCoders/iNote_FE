@@ -1,4 +1,5 @@
 import type { DatePickerProps } from 'antd'
+import { INoteListItemResult } from 'services/type'
 
 interface INotifyTimePickerProps {
   onChange?: any
@@ -6,3 +7,10 @@ interface INotifyTimePickerProps {
 }
 
 export type TNotifyTimePickerProps = INotifyTimePickerProps | DatePickerProps
+
+// 提醒列表
+export interface INotifyListGeneratorProps {
+  list: INoteListItemResult[],
+  onModify: any
+  onDelete: any
+}

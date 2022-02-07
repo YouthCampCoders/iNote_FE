@@ -10,9 +10,9 @@ const NoteContentListGenerator: React.FC<INoteContentListGeneratorProps> = (
 
   return NoteContentInfo?.length ? (
     <Row gutter={16}>
-      {NoteContentInfo.map((item, index) => (
+      {NoteContentInfo.map((item) => (
         <Col span={8} key={item._id}>
-          <CpnNoteCard {...item} />
+          <CpnNoteCard {...{ ...item, id: item._id }} />
         </Col>
       ))}
     </Row>
