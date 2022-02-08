@@ -1,3 +1,5 @@
+import { MouseEventHandler } from 'react'
+
 /**
  * ICpnNoteCardProps 接口
  * light 参数可以配置颜色是主题色 还是 白色
@@ -9,10 +11,13 @@
 export interface ICpnNoteCardProps {
   content: string
   title: string
+  id: string
   tag: string
   editable?: boolean
   time?: string
   light?: boolean
   topGup?: boolean
   bottomGup?: boolean
+  onModify?: MouseEventHandler<HTMLElement>
+  onDelete?: MouseEventHandler<HTMLElement>
 }

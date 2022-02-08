@@ -1,1 +1,1 @@
-export const CHANGE_NOTLIST = 'CHANGE_NOTLIST'
+export const GET_NOTELIST = 'GET_NOTELIST'

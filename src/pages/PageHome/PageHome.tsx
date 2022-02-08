@@ -1,32 +1,64 @@
-import React from 'react'
-import HomeNote from './HomeNote/HomeNote'
-import styles from './PageHome.module.css'
+import './index.less'
+import React, { useState } from 'react'
+import NoteCard from './noteCard'
+import iconWeChat from 'assets/images/PageHome/wechat.svg'
+import iconDouYin from 'assets/images/PageHome/douyin.svg'
+import iconWeiBo from 'assets/images/PageHome/weibo.svg'
+import iconTwitter from 'assets/images/PageHome/twitter.svg'
+
 const PageHome: React.FC = (props) => {
+  const [isEdit, setIsEdit] = useState(false);
+  // const getNotesMainHeight = () => {
+  //   console.log('getNotesMainHeight invoke')
+  //   const notesMain: HTMLElement | null = document.querySelector('.notes__main');
+  //   console.log(notesMain)
+  //   const height = notesMain ? notesMain.offsetHeight : 435;
+  //   if (notesMain) notesMain.style.maxHeight = `${height}px`
+  // }
+  // getNotesMainHeight()
+
+  const createNote = () => {
+    setIsEdit(true);
+  }
+  const toDetail = () => {
+    console.log('组件被点击')
+    return ''
+  }
+
   return (
-    <div className={styles.home_container}>
-      <div className={styles.home_main}>
-        <div className={styles.home_left}>
-          <p className={styles.note}>随笔记下</p>
-          <div className={styles.options}>
-            <p className={styles.start}>开始新的笔记</p>
-            <p className={styles.other}>OR</p>
-            <p className={styles.other}>打开已有笔记</p>
+    <div className="page-home-wrapper">
+      <main>
+        <div className="content block-wrapper">
+          <div className="content__header">
+            <span>随笔记下</span>
+            <button className={ isEdit ? 'save-btn' : 'save-btn hidden' }>保存笔记</button>
+          </div>
+          
+          <div className="content__main">
+            <button className={ isEdit ? 'new-btn hidden' : 'new-btn' } onClick={createNote}>记下新的笔记</button>
+            {/* 此处到时引入editor */}
           </div>
         </div>
-        <div className={styles.home_right}>
-          <div className={styles.my_note}>
-            <p className={styles.list}>我的笔记</p>
-            <HomeNote />
-            {/* <MyNote/> */}
-          </div>
-          <div className={styles.record}>
-            <div className={styles.icon}>
-              <img src={'img/wechat.svg'} alt="微信" />
-              <img src={'img/douyin.svg'} alt="抖音" />
-              <img src={'img/weibo.svg'} alt="微博" />
-              <img src={'img/twitter.svg'} alt="推特" />
+
+        <div className="sidebar">
+          <div className="notes block-wrapper">
+            <div className="notes__header">
+              <span>我的笔记</span>
             </div>
-            <div className={styles.information}>
+
+            <div className="notes__main">
+              <NoteCard id='1' title='iNote第一个笔记' content='iNote用起来还不错' tag='#随笔记录' onClick={ toDetail }/>
+            </div>
+          </div>
+
+          <div className="info block-wrapper">
+            <div className="info__icons">
+              <img src={iconWeChat} alt="Wechat"/>
+              <img src={iconDouYin} alt="Douyin"/>
+              <img src={iconWeiBo} alt="Weibo"/>
+              <img src={iconTwitter} alt="Twitter"/>
+            </div>
+            <div className="info__text">
               <p>京公网安备：123123123号</p>
               <p>@YouthCampCoders</p>
               <p>2021</p>
@@ -34,7 +66,7 @@ const PageHome: React.FC = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   )
 }

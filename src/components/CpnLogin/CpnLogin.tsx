@@ -1,109 +1,70 @@
-import React from 'react'
-import './index.less'
-// import wechat from 'assets/images/PageFirst/wechat.png'
-import { loginRequest } from '../../services/sdkRequest'
+import React, { useState } from 'react'
+import style from './CpnLogin.module.less'
+import { Button, message } from 'antd'
+import { PhoneLogin, UsernameLogin } from './CpnLoginMethod'
+import { loginWithPhone } from 'services/user'
+import { useNavigate } from 'react-router-dom'
+
 const CpnLogin: React.FC = (props) => {
-  // let [phoneNumber, setPhoneNumer] = useState('')
-  // 显示主页内容
-  let out = function () {
-    let start: any = document.querySelector('.phoneLogin')
-    start.style.display = 'none'
-    document.documentElement.style.overflow = 'visible'
-  }
-  // 具体什么方式登录
-  let choose = function (way: string) {
-    let login: any = document.querySelector('.login')
-    let otherLogin: any = document.querySelector('.otherLogin')
-    let wechat: any = document.querySelector('.wechatLogin')
-    switch (way) {
-      case 'phone':
-        login.style.display = 'block'
-        otherLogin.style.display = 'none'
-        break
-      case 'other':
-        login.style.display = 'none'
-        otherLogin.style.display = 'block'
-        break
-      case 'wechat':
-        wechat.style.display = 'block'
-        otherLogin.style.display = 'none'
-        break
-      case 'wxOther':
-        wechat.style.display = 'none'
-        otherLogin.style.display = 'block'
+  // 登录信息相关
+  const [phone, setPhone] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [code, setCode] = useState('')
+  // 当前的登录方式
+  const [cur, setCur] = useState(0)
+  const navigate = useNavigate()
+  // 登录
+  const login = async (curMethod: number, params: any) => {
+    let success = false
+    switch (curMethod) {
+      case 0:
+        const { phone, code } = params
+        success = await loginWithPhone(phone, code)
+        if (success) {
+          message.success('欢迎回来~')
+        } else {
+          message.error('登录失败，请检查手机号或验证码是否正确')
+        }
         break
     }
+    success && navigate('/home')
   }
-  // 获取验证码
-  let getVerifyCode = function () {
-    loginRequest({
-      url: 'user/sendMessage',
-      method: 'get',
-      params: {}
-    }).then((res) => {
-      console.log(res)
-    })
-  }
+
   return (
-    <div className="phoneLogin">
-      <div className="mask" onClick={out}></div>
-      <div className="bounce">
-        <span className="title">iNote Login</span>
-        <div className="login">
-          <form action="">
-            <div className="phone">
-              <span className="label">手机号</span>
-              <input type="tel" name="" id="phone" />
-            </div>
-            <div className="verify">
-              <span className="label code">验证码</span>
-              <input type="text" className="verifycode" />
-              <div className="get" onClick={getVerifyCode}>
-                获取验证码
-              </div>
-            </div>
-          </form>
-          <span className="prompt">
-            使用手机号登录时，如未注册则自动注册账号
-          </span>
-          <button className="submit">登录</button>
-          <span className="other" onClick={() => choose('other')}>
-            其他方式登陆？
-          </span>
-        </div>
-        <div className="otherLogin">
-          <form action="">
-            <div className="pawLogin">
-              <span className="label">账号</span>
-              <input type="tel" name="" id="" />
-            </div>
-            <div className="verify">
-              <span className="label code">密码</span>
-              <input type="password" className="password" />
-            </div>
-          </form>
-          <div className="choose">
-            <span className="label otherWe">其他</span>
-            <img
-              src={'img/wechat.svg'}
-              alt=""
-              onClick={() => choose('wechat')}
+    <div className={style['login']}>
+      <div className={style['login__center']}>
+        <div className={style['login__title']}>iNote Login</div>
+        <div className={style['login__main']}>
+          {!cur ? (
+            <PhoneLogin {...{ phone, code, setPhone, setCode }} />
+          ) : (
+            <UsernameLogin
+              {...{ username, password, setUsername, setPassword, setCur }}
             />
-          </div>
-          <button className="submit">登录</button>
-          <span className="other" onClick={() => choose('phone')}>
-            手机号登录？
-          </span>
+          )}
         </div>
-        <div className="wechatLogin">
-          <img src="" alt="" />
-          <div className="prompt">打开微信-{'>'}扫一扫</div>
-          <span className="other" onClick={() => choose('wxOther')}>
-            其他方式登陆？
-          </span>
+        <div className={style['login__bottom']}>
+          <Button
+            type="primary"
+            style={{
+              width: '40%',
+              color: '#B8C1EC',
+              fontWeight: 700,
+              borderRadius: '10px',
+              height: '40px'
+            }}
+            onClick={() => {
+              login(cur, { phone, code })
+            }}
+          >
+            登录
+          </Button>
+          {/* <div onClick={() => setCur(cur ? 0 : 1)}>其他方式登录</div> */}
         </div>
       </div>
     </div>
   )
 }
+
 export default CpnLogin

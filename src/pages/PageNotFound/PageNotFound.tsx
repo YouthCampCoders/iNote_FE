@@ -1,7 +1,31 @@
 import React from 'react'
+import { Empty, Button } from 'antd'
+import { useNavigate } from 'react-router-dom'
 
 const PageNotFound: React.FC = (props) => {
-  return <div>404 Not Found</div>
+  const navigate = useNavigate()
+
+  return (
+    <div
+      style={{
+        width: '100vw',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <Empty description="页面走丢了" />
+      <Button
+        type="primary"
+        style={{ marginTop: '20px' }}
+        onClick={() => navigate('/home')}
+      >
+        返回主页
+      </Button>
+    </div>
+  )
 }
 
 export default PageNotFound

@@ -1,20 +1,27 @@
 import React from 'react'
 import { INoteContentListGeneratorProps } from '../type'
 import CpnNoteCard from 'components/CpnNoteCard'
-import { Row, Col } from 'antd'
+import { Row, Col, Empty } from 'antd'
 
 const NoteContentListGenerator: React.FC<INoteContentListGeneratorProps> = (
   props
 ) => {
   const { NoteContentInfo } = props
-  return (
+
+  return NoteContentInfo?.length ? (
     <Row gutter={16}>
-      {NoteContentInfo.map((item, index) => (
-        <Col span={8} key={index}>
-          <CpnNoteCard {...item} />
+      {NoteContentInfo.map((item) => (
+        <Col span={8} key={item._id}>
+          <CpnNoteCard {...{ ...item, id: item._id }} />
         </Col>
       ))}
     </Row>
+  ) : (
+    <Empty
+      style={{ marginTop: '10%' }}
+      description="未找到笔记~"
+      image={Empty.PRESENTED_IMAGE_SIMPLE}
+    />
   )
 }
 

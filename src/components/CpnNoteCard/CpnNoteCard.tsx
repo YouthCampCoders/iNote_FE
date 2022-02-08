@@ -33,13 +33,14 @@ const TimeBlock = (time?: string) => {
   )
 }
 
-const EditBlock = () => {
+const EditBlock = (onModify: any, onDelete: any, id: string) => {
   return (
     <div className={style['card__edit']}>
       <Button
         icon={<img src="img/edit.svg" alt="" />}
         type="text"
         style={{ color: '#232946', fontWeight: 700 }}
+        onClick={onModify(id)}
       >
         修改时间
       </Button>
@@ -47,6 +48,7 @@ const EditBlock = () => {
         icon={<img src="img/delete.svg" alt="" />}
         type="text"
         style={{ color: '#D81E06', fontWeight: 700 }}
+        onClick={onDelete(id)}
       >
         取消推送
       </Button>
@@ -55,10 +57,23 @@ const EditBlock = () => {
 }
 
 const CpnNoteCard: React.FC<ICpnNoteCardProps> = (props) => {
-  const { content, title, time, editable, tag, light, topGup, bottomGup } =
-    props
-  const cardTopGup = topGup ? '16px' : '0'
-  const cardBottomGup = bottomGup ? '16px' : '0'
+  const {
+    content,
+    title,
+    time,
+    editable,
+    tag,
+    light,
+    // topGup,
+    // bottomGup,
+    onModify,
+    onDelete,
+    id
+  } = props
+  // const cardTopGup = topGup ? '16px' : '16px'
+  const cardTopGup = '16px'
+  // const cardBottomGup = bottomGup ? '16px' : '0'
+  const cardBottomGup = '0'
 
   headStyle.backgroundColor = bodyStyle.backgroundColor = light
     ? '#fff'
@@ -76,12 +91,12 @@ const CpnNoteCard: React.FC<ICpnNoteCardProps> = (props) => {
         headStyle={{ ...headStyle }}
         bodyStyle={{ ...bodyStyle } as React.CSSProperties}
       >
-        <Text>{content}</Text>
+        <Text ellipsis>{content}</Text>
         <Button type="primary" style={buttonStyle}>
           {`#${tag}`}
         </Button>
         {time && TimeBlock(time)}
-        {editable && EditBlock()}
+        {editable && EditBlock(onModify, onDelete, id)}
       </Card>
     </div>
   )

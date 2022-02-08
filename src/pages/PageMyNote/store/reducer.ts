@@ -1,14 +1,14 @@
 import * as actionTypes from './constants'
 
 const defaultState = {
-  NoteList: [],
+  noteList: []
 }
 
 // 最终同步处理
 export default function reducer(state = defaultState, action: any) {
   switch (action.type) {
-    case actionTypes.CHANGE_NOTLIST:
-      return { ...state, NoteList: action.NoteList }
+    case actionTypes.GET_NOTELIST:
+      return { ...state, noteList: action.noteList }
     default:
       return state
   }

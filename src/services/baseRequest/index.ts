@@ -78,8 +78,8 @@ class Request {
     return this.request<T>({ ...config, method: 'DELETE' })
   }
 
-  patch<T>(config: RequestConfig<T>): Promise<T> {
-    return this.request<T>({ ...config, method: 'PATCH' })
+  put<T>(config: RequestConfig<T>): Promise<T> {
+    return this.request<T>({ ...config, method: 'PUT' })
   }
 }
 

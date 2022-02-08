@@ -1,0 +1,1 @@
+export const CHANGE_ROUTER_PATH = 'CHANGE_ROUTER_PATH'
