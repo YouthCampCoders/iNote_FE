@@ -7,7 +7,7 @@ const AvatarMenu: React.FC = () => {
   const navigate = useNavigate()
   const userLogout = async () => {
     if (await logout()) {
-      navigate('/first')
+      navigate('/index')
       message.success('登出成功')
     } else {
       message.error('操作失败')

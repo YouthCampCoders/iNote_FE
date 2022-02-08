@@ -28,7 +28,7 @@ export default function usePathChange(): number {
     // 设置当前的 Navbar 索引为 pathType
     setCurrent(pathType)
     if (location.pathname !== '/first' && !cache.getCache('__userinfo__')) {
-      navigate('/first')
+      navigate('/index')
       message.warning('请先登录~')
     }
   }, [location.pathname, navigate])
