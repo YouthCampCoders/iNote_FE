@@ -1,9 +1,5 @@
 .faq {
-  position: absolute;
-  top: 75px;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  width: 100%;
   background-color: #f2f7fc;
 
   &__main {
@@ -19,23 +15,21 @@
     width: 100%;
     position: relative;
     h1 {
-      width: 90%;
-      float: left;
-      font-family: Arial;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 21.33px;
-      line-height: 25px;
-      align-items: center;
-      letter-spacing: 0.1em;
+      display: inline-block;
+      width: 95%;
       color: #232946;
+      font-family: Arial;
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 25px;
+      letter-spacing: 0.1em;
+      text-align: left;
     }
     img {
-      float: none;
-      width: 25px;
-      line-height: 30px;
-      margin-bottom: 30px;
+      width: 24px;
       transform: rotate(90deg);
+      transition: linear 300ms;
     }
     p {
       font-family: Arial;
