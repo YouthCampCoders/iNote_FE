@@ -1,21 +1,19 @@
-import { CpnCrumb } from 'components/CpnCrumb/CpnCrumb'
-import styles from './PageFaq.module.less'
+import React from 'react'
 import CpnBlockContainer from 'components/CpnBlockContainer'
+import CpnBreadCrumb from 'components/CpnBreadCrumb'
+import styles from './PageFaq.module.less'
 import { Question } from './Question'
 
 const PageFaq: React.FC = () => {
   return (
     <div className={styles['faq']}>
       <main className={styles['faq__main']}>
-        <CpnBlockContainer
-          transStyle={{ flex: 0 }}
-          children={<CpnCrumb value="常见问题" />}
-        />
+        <CpnBreadCrumb />
         <CpnBlockContainer
           transStyle={{ flex: 1 }}
           children={
             <ul>
-              {questions.map((que,index) => (
+              {questions.map((que, index) => (
                 <li key={que.question}>
                   <Question question={que.question} answer={que.answer} />
                 </li>
@@ -29,7 +27,6 @@ const PageFaq: React.FC = () => {
 }
 
 export default PageFaq
-
 
 const questions = [
   {

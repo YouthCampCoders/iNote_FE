@@ -1,5 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './store'
 
 // 组件
 import PageNotify from 'pages/PageNotify'
@@ -10,7 +12,6 @@ import PageMyNote from 'pages/PageMyNote'
 import CpnNavBar from 'components/CpnNavBar/CpnNavBar'
 import PageNotFound from 'pages/PageNotFound'
 import PageFirst from 'pages/PageFirst'
-
 
 const App: React.FC = (props) => {
   return (

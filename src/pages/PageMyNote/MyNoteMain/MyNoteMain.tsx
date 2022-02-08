@@ -18,7 +18,8 @@ const NoteTagInfo = [
 const NoteContentInfo = new Array(11).fill({
   title: '我在INote的第一篇笔记',
   content: '第一次在iNote记笔记，感觉还不错哎！',
-  tag: '随笔记录'
+  tag: '随笔记录',
+  topGup: true
 })
 
 const MyNoteMain: React.FC = (props) => {
