@@ -19,7 +19,6 @@ export const getNoteList = (year: string, tag: string, needPush?: boolean) => {
       url: 'note?' + paramY + paramT + paramN
     })
     // 返回数据
-    console.log(res.list)
     res.success && resolve(res.list)
   })
 }

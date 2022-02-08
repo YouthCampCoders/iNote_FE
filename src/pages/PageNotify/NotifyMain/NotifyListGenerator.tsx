@@ -25,7 +25,11 @@ const NotifyListGenerator: React.FC<INotifyListGeneratorProps> = (props) => {
           )
         })
       ) : (
-        <Empty description="暂无需要提醒的笔记" style={{ marginTop: '10%' }} />
+        <Empty
+          description="暂无需要提醒的笔记"
+          style={{ marginTop: '15%' }}
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+        />
       )}
     </>
   )

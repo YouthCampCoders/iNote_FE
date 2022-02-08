@@ -57,5 +57,5 @@ export interface INoteListItemRootResult extends IBaseResult {
 
 // 文件上传
 export interface IFileRootResult extends IBaseResult {
-  result: string
+  url: string
 }
