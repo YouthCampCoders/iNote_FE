@@ -1,16 +1,19 @@
 import axios from 'axios'
 import type { AxiosInstance } from 'axios'
 import type { RequestConfig, RequestInterceptors } from './types'
+import { message } from 'antd'
 
 class Request {
   instance: AxiosInstance
   interceptors?: RequestInterceptors
+  loading: any
 
   constructor(config: RequestConfig) {
     this.instance = axios.create(config)
 
     // 保存基本信息
     this.interceptors = config.interceptors
+    this.loading = message
 
     // request 和 response 的拦截
     this.instance.interceptors.request.use(
@@ -26,6 +29,7 @@ class Request {
     // 所有实例的公共拦截
     this.instance.interceptors.request.use(
       (config) => {
+        this.loading.loading('加载中', 0)
         return config
       },
       (err) => {
@@ -35,9 +39,11 @@ class Request {
 
     this.instance.interceptors.response.use(
       (res) => {
+        this.loading.destroy()
         return res.data
       },
       (err) => {
+        this.loading.destroy()
         if (err.response.status === 404) {
           console.log('404')
         }

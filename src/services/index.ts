@@ -14,7 +14,7 @@ const _Request = new Request({
   timeout: 10000,
   headers: {
     'x-tt-session-v2': uuid
-  }
+  },
 })
 
 export default _Request

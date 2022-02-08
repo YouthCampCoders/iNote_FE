@@ -87,7 +87,7 @@ const CpnNoteCard: React.FC<ICpnNoteCardProps> = (props) => {
       <Card
         hoverable
         title={title}
-        bordered={light}
+        bordered={/* light  */ false}
         headStyle={{ ...headStyle }}
         bodyStyle={{ ...bodyStyle } as React.CSSProperties}
       >
