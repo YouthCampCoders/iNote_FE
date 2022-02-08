@@ -1,15 +1,16 @@
-import React from 'react'
-import CpnLogin from 'components/CpnLogin'
-import illustration from 'assets/images/PageFirst/illustration.png'
-import iconGraphic from 'assets/images/PageFirst/icon-graphic.png'
-import iconWrite from 'assets/images/PageFirst/icon-write.png'
-import { useState } from 'react'
-import cache from 'utils/cache'
 import './index.less'
+import React from 'react'
+import cache from 'utils/cache'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import CpnLogin from 'components/CpnLogin'
+import iconWrite from 'assets/images/PageFirst/icon-write.png'
+import iconGraphic from 'assets/images/PageFirst/icon-graphic.png'
+import illustration from 'assets/images/PageFirst/illustration.png'
+
 const PageFirst: React.FC = (props) => {
-  const [loginSHow, setLoginShow] = useState(false)
+  const [loginShow, setLoginShow] = useState(false)
   const navigate = useNavigate()
 
   const getStart = () => {
@@ -21,38 +22,49 @@ const PageFirst: React.FC = (props) => {
   }
 
   return (
-    <div id="first">
-      <div className="first">
-        <div className="text">
-          <span className="inote">iNote</span>
-          <span className="slogan">You Note, We Code!</span>
-          <button className="button" onClick={getStart}>
-            Get Start
-          </button>
+    <div id="app">
+      <div className="index slide-top">
+        <div className="content">
+          <p className="name">iNote</p>
+          <p className="slogan">You Note, We Code!</p>
+          <button className="login-btn" onClick={getStart}>Get Start</button>
         </div>
-        <img className="illustration" src={illustration} alt="" />
+        <div className="show">
+          <img src={illustration}/>
+        </div>
       </div>
-      {loginSHow ? <CpnLogin /> : ''}
-      <div className="second">
-        <p className="slogan">You Note, We Code!</p>
-        <p className="show">你的笔记不只是笔记，更是你的外脑。尽情书写，剩下的交给我们！</p>
-        <div className="card">
-          <div className="left">
-            <img src={ iconGraphic } alt="" className="icon" />
-            <span className="abin">艾宾浩斯遗忘曲线</span>
-            <div className="content">
-              书写下的笔记不应该书写完就去吃灰，iNote结合艾宾浩斯遗忘曲线规律进行笔记推送，让你的笔记不只存在于iNote，更存在于你的大脑！
+      {loginShow ? <CpnLogin /> : ''}
+      <div className="index-second">
+        <div className="slogan">
+          <p>You Note, We Code!</p>
+          <p>你的笔记不只是笔记，更是你的外脑。尽情书写，剩下的交给我们！</p>
+        </div>
+
+        <div className="content">
+          <div className="card">
+            <div className="card__header">
+              <img src={ iconGraphic } alt="" className="card__icon"/>
+              <span className="card__title">艾宾浩斯遗忘曲线</span>
+            </div>
+            <div className="card__content">
+              <p>书写下的笔记不应该书写完就去吃灰，iNote结合艾宾浩斯遗忘曲线规律进行笔记推送，让你的笔记不只存在于iNote，更存在于你的大脑！</p>
             </div>
           </div>
-          <div className="right">
-            <img src={ iconWrite } alt="" className="icon" />
-            <span className="abin">沉浸笔记书写体验</span>
-            <div className="content">
-              完善的编辑器让你在书写时能够无需关心其他的事情，沉浸于自己的思路。源于Typora，不止于Typora！完美支持md语法，让你的书写更加流畅！
+
+          <div className="card">
+            <div className="card__header">
+              <img src={ iconWrite } alt="" className="card__icon"/>
+              <span className="card__title">沉浸笔记书写体验</span>
+            </div>
+            <div className="card__content">
+              <p>完善的编辑器让你在书写时能够无需关心其他的事情，沉浸于自己的思路。源于Typora，不止于Typora！完美支持md语法，让你的书写更加流畅！</p>
             </div>
           </div>
         </div>
-        <span className="logo">©YouthCampCoders 2021 All Rights Reserved</span>
+
+        <div className="footer">
+          <p>©YouthCampCoders 2021 All Rights Reserved</p>
+        </div>
       </div>
     </div>
   )

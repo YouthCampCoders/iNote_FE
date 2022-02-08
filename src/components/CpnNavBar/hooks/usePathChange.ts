@@ -7,7 +7,14 @@ import cache from 'utils/cache'
  * usePathChange 路由守卫 hook
  * @ return {current} 返回当前页面的索引
  */
-const indexList = ['/mynote', '/notify', '/faq', '/setting', '/home']
+const indexList = [
+  '/mynote',
+  '/notify',
+  '/faq',
+  '/setting',
+  '/home',
+  '/mynote/ndetail'
+]
 
 export default function usePathChange(): number {
   const location = useLocation()

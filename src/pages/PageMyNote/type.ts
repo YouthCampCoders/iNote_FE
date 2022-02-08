@@ -12,7 +12,7 @@ export interface INoteContentInfo {
   editable?: boolean
   time?: string
   light?: boolean
-  _id?: string
+  _id: string
 }
 
 export interface INoteTagListGeneratorProps {

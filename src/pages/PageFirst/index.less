@@ -1,133 +1,147 @@
-#first {
-  width: 100%;
+#app {
+  position: relative;
+  width: 100vw;
   height: 200vh;
-  background: rgb(35, 41, 70);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  .first {
-    width: 1200px;
-    height: 600px;
+  min-height: 1200px;
+  background-color: #232946;
+
+  .index {
     display: flex;
-    justify-content: space-between;
+    width: 1200px;
+    height: 100vh;
+    margin: 0 auto;
     align-items: center;
-    .text {
-      width: 500px;
-      height: 500px;
+    box-sizing: border-box;
+
+    .content {
       display: flex;
+      height: 504.4px;
       flex-direction: column;
+      flex: 1;
       justify-content: space-around;
-      .inote {
-        width: 200px;
-        height: 80px;
-        color: #ffffff;
-        font-size: 67.34px;
+
+      p {
+        font-weight: bold;
+        color: #FFFFFF;
       }
+
+      .name {
+        font-size: var(--h1-font-size);
+      }
+
       .slogan {
-        width: 500px;
-        height: 42px;
-        font-size: 37.9px;
-        color: #b8c1ec;
+        color: #B8C1EC;
+        font-size: var(--h2-font-size);
       }
-      .button {
+
+      .login-btn {
         width: 300px;
-        line-height: 60px;
-        background: #eebbc3;
-        border-radius: 100px;
-        font-size: 37.9px;
+        height: 60px;
+        border: none;
+        background-color: #EEBBC3;
         color: #232946;
+        font-weight: bold;
+        border-radius: 100px;
+        font-size: var(--h2-font-size);
+      }
+
+      .login-btn:hover {
+        cursor: pointer;
+        transform: translateY(1px);
+        box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.4);
       }
     }
-    .illustration {
-      width: 700px;
-      height: 504.4px;
-      border-radius: 20px;
+
+    .show {
+      img {
+        width: 700px;
+        height: 504.4px;
+        border-radius: 1.25em;
+        vertical-align: bottom;
+      }
     }
   }
-  .second {
+
+  .index-second {
     width: 1200px;
-    height: 600px;
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding-top: 50px;
+
     .slogan {
-      /* You Note, We Code! */
-      position: relative;
-      left: 50%;
-      margin-left: -200px;
-      width: 300px;
-      height: 70px;
-      font-size: 47.34px;
-      line-height: 77px;
       text-align: center;
-      color: #ffffff;
+      font-weight: bold;
+
+      p:first-child {
+        color: #FFFFFF;
+        font-size: var(--h1-font-size);
+      }
+
+      p:last-child {
+        margin-top: 50px;
+        color: #B8C1EC;
+        font-size: var(--h2-font-size);
+      }
     }
-    .show {
-      /* You Note, We Code!You Note, We Code!You Note, We Code!You Note, We Code! */
-      position: relative;
-      width: 1000px;
-      height: 74px;
-      left: 50%;
-      margin-left: -500px;
-      top: 40px;
-      font-size: 30.9px;
-      line-height: 44px;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      color: #b8c1ec;
-    }
-    .card {
-      width: 1200px;
-      height: 400px;
-      margin-top: 80px;
+
+    .content {
       display: flex;
       justify-content: space-between;
-      .left,
-      .right {
-        width: 520px;
-        height: 340px;
-        background: rgb(255, 255, 255);
-        border-radius: 20px;
-        .icon {
-          width: 80px;
-          height: 80px;
-          margin: 30px 0 0 30px;
-        }
-        .abin {
-          /* 标题 */
-          position: relative;
-          top: -40px;
-          left: 150px;
-          width: 365px;
-          height: 31px;
-          font-size: 27.9px;
-          line-height: 44px;
-          display: flex;
-          align-items: center;
-          color: #232946;
-        }
-        .content {
-          /* 内容 */
-          position: relative;
-          width: 470px;
-          height: 187px;
-          left: 20px;
-          // top: 50px;
-          font-size: 17.33px;
-          line-height: 40px;
-          color: #232946;
-        }
+    }
+
+    .footer {
+      position: absolute;
+      width: 1200px;
+      bottom: 1em;
+      p {
+        color: #B8C1EC;
+        font-weight: bold;
+        font-size: 1rem;
+        text-align: center;
       }
     }
-    .logo {
-      /* ©YouthCampCoders 2021 All Rights Reserved */
-      position: relative;
-      width: 360px;
-      height: 16px;
-      left: 50%;
-      margin-left: -180px;
-      bottom: 20px;
-      font-size: 16px;
-      color: #b8c1ec;
+  }
+}
+
+.card {
+  width: 580px;
+  height: 410px;
+  background-color: #ffffff;
+  border-radius: 1.25em;
+  padding: 50px;
+
+  .card__header {
+    display: flex;
+    align-items: center;
+
+    .card__icon {
+      width: 100px;
+      height: 100px;
+      vertical-align: bottom;
+    }
+
+    .card__title {
+      margin-left: 1em;
+      font-weight: bold;
+      font-size: var(--h2-font-size);
+      color: #232946;
     }
   }
+
+  .card__content {
+    margin-top: 1.5em;
+
+    p {
+      font-size: var(--h4-font-size);
+      line-height: 40px;
+      color: #232946;
+      word-break: break-all;
+    }
+  }
+}
+
+.slide-top {
+	-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }

@@ -21,7 +21,7 @@ const CpnNavBar: React.FC = (props) => {
           className={style['navbar__logo']}
           onClick={() => currentNavChange('/home')}
         >
-          <img src="img/logo.png" alt="" />
+          <img src="/img/logo.png" alt="" />
         </li>
         {/* 导航列表 */}
         {navList.map((nav, index) => (
