@@ -36,13 +36,3 @@
   /* 鼠标移入滑块 */
   background: #909090;
 }
-
-body{
-    width: 100vw;
-    height: 100vh;
-}
-
-main{
-    width: 1200px;
-    margin: 0 auto;
-}
