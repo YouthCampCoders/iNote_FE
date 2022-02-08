@@ -1,0 +1,144 @@
+.page-home-wrapper {
+  width: 100vw;
+  height: calc(100vh - 75px);
+  background-color: #F2F7FC;
+}
+
+main {
+  display: flex;
+  width: 1200px;
+  height: 100%;
+  padding: 25px 0;
+  justify-content: space-between;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: 775px;
+    padding: 1.25em;
+
+    .content__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      span {
+        color: #232946;
+        font-size: var(--h3-font-size);
+        font-weight: bold;
+      }
+
+      button {
+        width: 100px;
+        height: 40px;
+        border: none;
+        border-radius: 5px;
+        color: #FFFFFF;
+        background-color: #232946;
+        font-weight: bold;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .content__main {
+      position: relative;
+      margin-top: 1.5625em;
+      flex: 1;
+
+      button {
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%, -50%);
+        width: 160px;
+        height: 50px;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 50px;
+        background-color: #232946;
+        font-weight: bold;
+        font-size: var(--h4-font-size);
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .sidebar {
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+
+    .notes {
+      flex: 5;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 25px;
+
+      .notes__header {
+        span {
+          color: #232946;
+          font-size: var(--h3-font-size);
+          font-weight: bold;
+        }
+      }
+
+      .notes__main {
+        margin-top: 25px;
+        flex: 6;
+        overflow-y: scroll;
+      }
+    }
+
+    .info {
+      flex: 1;
+      width: 100%;
+      margin-top: 1.5em;
+      padding: 2em 4em 1em;
+
+
+      .info__icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+          width: 50px;
+          height: 50px;
+          vertical-align: bottom;
+        }
+
+        img:hover {
+          cursor: pointer;
+        }
+      }
+
+      .info__text {
+        margin-top: 1.5em;
+        font-size: 1rem;
+        line-height: 1;
+        font-weight: bold;
+        color: rgba(35, 41, 70, 0.8);
+        text-align: center;
+      }
+    }
+    
+  }
+}
+
+.block-wrapper {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 30px 30px 70px 0 rgba(0, 0, 0, 0.04),
+              3.8px 3.8px 8.8px 0 rgba(0, 0, 0, 0.01);
+}
+
+.hidden {
+  display: none;
+}

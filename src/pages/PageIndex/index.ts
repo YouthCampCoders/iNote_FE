@@ -1,2 +1,2 @@
-import PageFirst from './PageFirst'
-export default PageFirst
+import PageIndex from './PageIndex'
+export default PageIndex

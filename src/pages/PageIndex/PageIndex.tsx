@@ -1,23 +1,22 @@
 import './index.less'
-import React from 'react'
 import cache from 'utils/cache'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import CpnLogin from 'components/CpnLogin'
-import iconWrite from 'assets/images/PageFirst/icon-write.png'
-import iconGraphic from 'assets/images/PageFirst/icon-graphic.png'
-import illustration from 'assets/images/PageFirst/illustration.png'
+import iconWrite from 'assets/images/PageIndex/icon-write.png'
+import iconGraphic from 'assets/images/PageIndex/icon-graphic.png'
+import illustration from 'assets/images/PageIndex/illustration.png'
 
-const PageFirst: React.FC = (props) => {
-  const [loginShow, setLoginShow] = useState(false)
+const PageIndex: React.FC = (props) => {
+  const [isLogin, setIsLogin] = useState(false)
   const navigate = useNavigate()
 
   const getStart = () => {
     if (cache.getCache('__userinfo__')) {
       navigate('/home')
     } else {
-      setLoginShow(true)
+      setIsLogin(true)
     }
   }
 
@@ -33,7 +32,7 @@ const PageFirst: React.FC = (props) => {
           <img src={illustration}/>
         </div>
       </div>
-      {loginShow ? <CpnLogin /> : ''}
+      {isLogin ? <CpnLogin /> : ''}
       <div className="index-second">
         <div className="slogan">
           <p>You Note, We Code!</p>
@@ -70,4 +69,4 @@ const PageFirst: React.FC = (props) => {
   )
 }
 
-export default PageFirst
+export default PageIndex
