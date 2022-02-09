@@ -6,6 +6,7 @@ import { message } from 'antd'
 class Request {
   instance: AxiosInstance
   interceptors?: RequestInterceptors
+
   loader: any
 
   constructor(config: RequestConfig) {
@@ -14,6 +15,7 @@ class Request {
 
     // 保存基本信息
     this.interceptors = config.interceptors
+    this.loader = message
 
     // request 和 response 的拦截
     this.instance.interceptors.request.use(
@@ -30,6 +32,7 @@ class Request {
     this.instance.interceptors.request.use(
       (config) => {
         this.loader.loading('加载中', 0)
+
         return config
       },
       (err) => {
@@ -44,6 +47,7 @@ class Request {
       },
       (err) => {
         this.loader.destroy()
+
         if (err.response.status === 404) {
           console.log('404')
         }

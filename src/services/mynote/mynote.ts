@@ -8,6 +8,10 @@ import request from 'services'
 /**
  * functionName 获取所有笔记
  * method get
+ * params
+ *  year 年份
+ *  tag 标签
+ *  needPush 是否需要推送
  */
 export const getNoteList = (year: string, tag: string, needPush?: boolean) => {
   return new Promise<INoteListItemResult[]>(async (resolve, reject) => {

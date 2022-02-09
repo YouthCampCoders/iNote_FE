@@ -1,8 +1,10 @@
 import React from 'react'
 import { Empty, Button } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import useDocumentTitle from 'hooks/useDocumentTitle'
 
 const PageNotFound: React.FC = (props) => {
+  useDocumentTitle('页面走丢了，可你得回来')
   const navigate = useNavigate()
 
   return (
