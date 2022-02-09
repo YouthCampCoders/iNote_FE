@@ -8,7 +8,7 @@ import PageFaq from 'pages/PageFaq'
 import PageSetting from 'pages/PageSetting'
 import PageMyNote from 'pages/PageMyNote'
 import PageIndex from 'pages/PageIndex'
-// import PageNoteDetail from 'pages/PageNoteDetail'
+import PageNoteDetail from 'pages/PageNoteDetail'
 
 const router: RouteObject[] = [
   {
@@ -38,12 +38,10 @@ const router: RouteObject[] = [
   {
     path: '/mynote',
     element: <PageMyNote />
-    // children: [
-    //   {
-    //     path: 'ndetail',
-    //     element: <PageNoteDetail />
-    //   }
-    // ]
+  },
+  {
+    path: 'ndetail',
+    element: <PageNoteDetail />
   },
   {
     path: '*',

@@ -3,7 +3,8 @@ export interface IUserPartInfo {
   avatar?: string
   _id?: string
   phoneNumber?: string | number
-  intro?: string
+  intro?: string,
+  email?: string
 }
 
 export interface INavBarStore {

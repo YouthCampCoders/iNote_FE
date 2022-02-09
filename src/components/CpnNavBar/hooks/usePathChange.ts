@@ -13,7 +13,7 @@ const indexList = [
   '/faq',
   '/setting',
   '/home',
-  '/mynote/ndetail'
+  '/ndetail'
 ]
 
 export default function usePathChange(): number {

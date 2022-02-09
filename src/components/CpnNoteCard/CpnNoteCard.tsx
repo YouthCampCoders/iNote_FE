@@ -2,6 +2,8 @@ import React from 'react'
 import { Card, Button, Typography } from 'antd'
 import { ICpnNoteCardProps } from './type'
 import style from './CpnNoteCard.module.less'
+import { useNavigate } from 'react-router-dom'
+import cache from 'utils/cache'
 
 const { Text } = Typography
 const headStyle = {
@@ -57,6 +59,13 @@ const EditBlock = (onModify: any, onDelete: any, id: string) => {
 }
 
 const CpnNoteCard: React.FC<ICpnNoteCardProps> = (props) => {
+  const navigate = useNavigate()
+
+  const goDetail = (pageInfo: any) => {
+    navigate('/ndetail')
+    cache.setCache('__notedetail__', pageInfo)
+  }
+
   const {
     content,
     title,
@@ -83,6 +92,7 @@ const CpnNoteCard: React.FC<ICpnNoteCardProps> = (props) => {
     <div
       className={style['card']}
       style={{ marginTop: cardTopGup, marginBottom: cardBottomGup }}
+      onClick={() => goDetail(props)}
     >
       <Card
         hoverable

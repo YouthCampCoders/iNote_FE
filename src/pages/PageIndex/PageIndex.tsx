@@ -2,6 +2,7 @@ import './index.less'
 import cache from 'utils/cache'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import useDocumentTitle from 'hooks/useDocumentTitle'
 
 import CpnLogin from 'components/CpnLogin'
 import iconWrite from 'assets/images/PageIndex/icon-write.png'
@@ -11,7 +12,7 @@ import illustration from 'assets/images/PageIndex/illustration.png'
 const PageIndex: React.FC = (props) => {
   const [isLogin, setIsLogin] = useState(false)
   const navigate = useNavigate()
-
+  useDocumentTitle('欢迎来到 iNote~')
   const getStart = () => {
     if (cache.getCache('__userinfo__')) {
       navigate('/home')

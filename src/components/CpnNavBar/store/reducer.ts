@@ -1,12 +1,12 @@
 import cache from 'utils/cache'
 import * as ActionTypes from './contants'
 import { INavBarStore } from './type'
-const { _id, avatar, username, intro, phoneNumber } =
+const { _id, avatar, username, intro, phoneNumber, email } =
   cache.getCache('__userinfo__') || {}
 
 const defaultState: INavBarStore = {
   pathList: ['home'],
-  userInfo: { _id, avatar, username, intro, phoneNumber }
+  userInfo: { _id, avatar, username, intro, phoneNumber, email }
 }
 
 export default function reducer(state = defaultState, action: any) {

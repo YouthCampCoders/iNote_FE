@@ -14,6 +14,7 @@ const CpnNavBar: React.FC = (props) => {
   const currentNavChange = (to: string) => navigate(to)
 
   useBreadChange()
+
   return current >= 0 ? (
     <div className={style['navbar']}>
       <ul className={style['navbar__list']}>

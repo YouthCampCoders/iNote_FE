@@ -2,7 +2,7 @@ import * as ActionTypes from './contants'
 import { Dispatch } from 'redux'
 import { IUserPartInfo } from './type'
 import { changeUserInfo } from 'services/user'
-import { validUserInfo } from 'utils/validMethod'
+import { validUserInfo, validEmail } from 'utils/validMethod'
 import { message } from 'antd'
 import cache from 'utils/cache'
 
@@ -17,6 +17,10 @@ export const changeRouterPath =
 export const changeUserinfoAction =
   (preUserInfo: IUserPartInfo, curUserInfo: IUserPartInfo) =>
   async (dispatch: Dispatch) => {
+    const emailCorrect = validEmail(curUserInfo.email)
+    if (!emailCorrect) {
+      return message.warning('请填写正确的邮箱格式')
+    }
     const res = await changeUserInfo(validUserInfo(preUserInfo, curUserInfo))
     if (res) {
       dispatch({

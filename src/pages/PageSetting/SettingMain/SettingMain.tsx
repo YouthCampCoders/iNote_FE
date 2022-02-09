@@ -7,6 +7,7 @@ import styles from './SettingMain.module.less'
 import { uploadFile } from 'services/file'
 import { useDispatch } from 'react-redux'
 import { changeUserinfoAction } from 'components/CpnNavBar/store/actionCreators'
+import useDocumentTitle from 'hooks/useDocumentTitle'
 
 const { Text } = Typography
 const { TextArea } = Input
@@ -22,7 +23,8 @@ const infoVal = {
   username: '',
   phoneNumber: '',
   intro: '',
-  avatar: ''
+  avatar: '',
+  email: ''
 }
 
 const SettingMain: React.FC = () => {
@@ -33,10 +35,12 @@ const SettingMain: React.FC = () => {
   // 修改redux
   const dispatch = useDispatch()
 
+  useDocumentTitle('换个身份，换个心情')
   // 获取用户信息
   useEffect(() => {
     ;(async () => {
-      const { _id, username, phoneNumber, intro, avatar } = await getUserInfo()
+      const { _id, username, phoneNumber, intro, avatar, email } =
+        await getUserInfo()
       const curInfo = {
         _id,
         username,
@@ -44,8 +48,10 @@ const SettingMain: React.FC = () => {
         intro,
         avatar:
           avatar ??
-          'https://qcq5h7.file.qingfuwucdn.com/file/fa8a9aec55040644_1643707699523.png'
+          'https://qcq5h7.file.qingfuwucdn.com/file/fa8a9aec55040644_1643707699523.png',
+        email
       }
+
       setInfo(curInfo)
       setDefaultInfo(curInfo)
     })()
@@ -97,6 +103,15 @@ const SettingMain: React.FC = () => {
                 e.preventDefault()
                 validUserName(e.target.value) &&
                   setInfo(() => ({ ...info, username: e.target.value }))
+              }}
+            />
+          </Form.Item>
+          <Form.Item label="邮箱">
+            <Input
+              value={info.email}
+              onChange={(e) => {
+                e.preventDefault()
+                setInfo(() => ({ ...info, email: e.target.value }))
               }}
             />
           </Form.Item>

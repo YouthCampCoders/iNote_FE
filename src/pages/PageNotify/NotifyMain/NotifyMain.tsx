@@ -25,7 +25,8 @@ const NotifyMain: React.FC = (props) => {
     setTarget('')
   }
   // 进行操作时更改操作对象
-  const operate = (operateFn: any) => (id: string) => () => {
+  const operate = (operateFn: any) => (id: string) => (e: any) => {
+    e.stopPropagation()
     operateFn(true)
     setTarget(id)
   }
