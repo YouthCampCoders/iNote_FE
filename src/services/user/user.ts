@@ -103,6 +103,7 @@ export const changeUserInfo = (changeInfo: any) => {
       url: 'user/info',
       data: changeInfo
     })
+
     resolve(res.success)
   })
 }

@@ -1,14 +1,25 @@
 import './index.less'
-import React, { useState } from 'react'
-import NoteCard from './noteCard'
-import ReactMarkdown from 'react-markdown'
+import React, { SetStateAction, useEffect, useState } from 'react'
+// import NoteCard from './noteCard'
+import CpnNoteCard from 'components/CpnNoteCard'
 import iconWeChat from 'assets/images/PageHome/wechat.svg'
 import iconDouYin from 'assets/images/PageHome/douyin.svg'
 import iconWeiBo from 'assets/images/PageHome/weibo.svg'
 import iconTwitter from 'assets/images/PageHome/twitter.svg'
+import useDocumentTitle from 'hooks/useDocumentTitle'
+import { getNoteList } from 'services/mynote'
+
+const initProp = {
+  _id: '1',
+  title: 'iNote第一个笔记',
+  content: 'iNote用起来还不错',
+  tag: '随笔记录'
+}
 
 const PageHome: React.FC = (props) => {
-  const [isEdit, setIsEdit] = useState(false);
+  const [isEdit, setIsEdit] = useState(false)
+  const [note, setNote] = useState(initProp)
+  useDocumentTitle('写点什么吧')
   // const getNotesMainHeight = () => {
   //   console.log('getNotesMainHeight invoke')
   //   const notesMain: HTMLElement | null = document.querySelector('.notes__main');
@@ -19,13 +30,19 @@ const PageHome: React.FC = (props) => {
   // getNotesMainHeight()
 
   const createNote = () => {
-    setIsEdit(true);
+    setIsEdit(true)
   }
-  const toDetail = () => {
-    console.log('组件被点击')
-    return ''
-  }
-  const markdown = `# Hello, *World*!`;
+  // const toDetail = () => {
+  //   console.log('组件被点击')
+  //   return ''
+  // }
+
+  useEffect(() => {
+    ;(async () => {
+      const res = await getNoteList('', '')
+      setNote(res[0])
+    })()
+  }, [])
 
   return (
     <div className="page-home-wrapper">
@@ -33,12 +50,19 @@ const PageHome: React.FC = (props) => {
         <div className="content block-wrapper">
           <div className="content__header">
             <span>随笔记下</span>
-            <button className={ isEdit ? 'save-btn' : 'save-btn hidden' }>保存笔记</button>
+            <button className={isEdit ? 'save-btn' : 'save-btn hidden'}>
+              保存笔记
+            </button>
           </div>
-          
+
           <div className="content__main">
-            <button className={ isEdit ? 'new-btn hidden' : 'new-btn' } onClick={createNote}>记下新的笔记</button>
-            <ReactMarkdown children={markdown}></ReactMarkdown>
+            <button
+              className={isEdit ? 'new-btn hidden' : 'new-btn'}
+              onClick={createNote}
+            >
+              记下新的笔记
+            </button>
+            {/* 此处到时引入editor */}
           </div>
         </div>
 
@@ -49,16 +73,17 @@ const PageHome: React.FC = (props) => {
             </div>
 
             <div className="notes__main">
-              <NoteCard id='1' title='iNote第一个笔记' content='iNote用起来还不错' tag='#随笔记录' onClick={ toDetail }/>
+              {/* <NoteCard onClick={toDetail} /> */}
+              <CpnNoteCard {...{ ...note, id: note._id }} />
             </div>
           </div>
 
           <div className="info block-wrapper">
             <div className="info__icons">
-              <img src={iconWeChat} alt="Wechat"/>
-              <img src={iconDouYin} alt="Douyin"/>
-              <img src={iconWeiBo} alt="Weibo"/>
-              <img src={iconTwitter} alt="Twitter"/>
+              <img src={iconWeChat} alt="Wechat" />
+              <img src={iconDouYin} alt="Douyin" />
+              <img src={iconWeiBo} alt="Weibo" />
+              <img src={iconTwitter} alt="Twitter" />
             </div>
             <div className="info__text">
               <p>京公网安备：123123123号</p>
