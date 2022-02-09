@@ -8,6 +8,7 @@ import PageSetting from 'pages/PageSetting'
 import PageMyNote from 'pages/PageMyNote'
 import PageIndex from 'pages/PageIndex'
 import PageNoteDetail from 'pages/PageNoteDetail'
+import PageWrite from 'pages/PageWrite'
 
 const router: RouteObject[] = [
   {
@@ -21,6 +22,10 @@ const router: RouteObject[] = [
   {
     path: '/home',
     element: <PageHome />
+  },
+  {
+    path: '/write',
+    element: <PageWrite />
   },
   {
     path: '/faq',
