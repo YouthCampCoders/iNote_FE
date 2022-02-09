@@ -1,4 +1,3 @@
-import React from 'react'
 import { useRoutes, RouteObject, Navigate } from 'react-router-dom'
 // 组件
 import PageNotify from 'pages/PageNotify'

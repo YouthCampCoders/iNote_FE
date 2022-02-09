@@ -1,6 +1,7 @@
 import './index.less'
 import React, { useState } from 'react'
 import NoteCard from './noteCard'
+import ReactMarkdown from 'react-markdown'
 import iconWeChat from 'assets/images/PageHome/wechat.svg'
 import iconDouYin from 'assets/images/PageHome/douyin.svg'
 import iconWeiBo from 'assets/images/PageHome/weibo.svg'
@@ -36,7 +37,7 @@ const PageHome: React.FC = (props) => {
           
           <div className="content__main">
             <button className={ isEdit ? 'new-btn hidden' : 'new-btn' } onClick={createNote}>记下新的笔记</button>
-            {/* 此处到时引入editor */}
+            <ReactMarkdown>#Hello, *world*!</ReactMarkdown>
           </div>
         </div>
 
