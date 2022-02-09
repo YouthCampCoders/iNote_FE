@@ -14,3 +14,7 @@ export interface IUserLoginProps {
   setPassword: Dispatch<SetStateAction<string>>
   setCur: Dispatch<SetStateAction<number>>
 }
+
+export interface ICpnLoginProps {
+  closeFn: any
+}

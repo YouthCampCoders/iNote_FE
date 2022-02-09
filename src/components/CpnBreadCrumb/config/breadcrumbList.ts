@@ -18,7 +18,7 @@ export const BreadListMap: IBreadcrumbList = {
     to: '/faq'
   },
   setting: {
-    title: '偏好设置',
+    title: '个人设置',
     to: '/setting'
   },
   home: {

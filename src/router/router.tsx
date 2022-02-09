@@ -7,17 +7,17 @@ import PageNotFound from 'pages/PageNotFound'
 import PageFaq from 'pages/PageFaq'
 import PageSetting from 'pages/PageSetting'
 import PageMyNote from 'pages/PageMyNote'
-import PageFirst from 'pages/PageFirst'
+import PageIndex from 'pages/PageIndex'
 // import PageNoteDetail from 'pages/PageNoteDetail'
 
 const router: RouteObject[] = [
   {
     path: '/',
-    element: <Navigate to={'/first'} />
+    element: <Navigate to={'/index'} />
   },
   {
-    path: '/first',
-    element: <PageFirst />
+    path: '/index',
+    element: <PageIndex />
   },
   {
     path: '/home',

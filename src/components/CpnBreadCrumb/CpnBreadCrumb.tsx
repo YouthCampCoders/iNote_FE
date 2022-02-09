@@ -21,7 +21,8 @@ const separatorImg = (
 const CpnBreadCrumb: React.FC = (props) => {
   const { pathList } = useSelector<IRootState, INavBarStore>(
     (state) => ({
-      pathList: state.navPath.pathList
+      pathList: state.navPath.pathList,
+      userInfo: state.navPath.userInfo
     }),
     shallowEqual
   )
@@ -34,7 +35,7 @@ const CpnBreadCrumb: React.FC = (props) => {
     <CpnBlockContainer
       transStyle={{ display: 'flex', flexDirection: 'row', flex: 0 }}
     >
-      <Text strong>当前位置： &emsp;</Text>
+      <Text strong>当前位置： </Text>
       <Breadcrumb
         separator={separatorImg}
         className={style['breadcrumb__item']}

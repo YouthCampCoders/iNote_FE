@@ -1,3 +1,2 @@
-import PageSetting from "./PageSetting";
-
+import PageSetting from './PageSetting'
 export default PageSetting

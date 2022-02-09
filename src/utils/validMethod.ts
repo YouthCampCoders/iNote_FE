@@ -12,3 +12,19 @@ export function validPhoneNumber(phone: string | number) {
     })
   return correct
 }
+
+export function validUserInfo(preInfo: any, curInfo: any) {
+  const finalInfo = { ...curInfo }
+  for (let key in curInfo) {
+    if (curInfo[key] === preInfo[key]) {
+      Reflect.deleteProperty(finalInfo, key)
+    }
+  }
+  return finalInfo
+}
+
+export function validUserName(username: string) {
+  const len = username.length
+  !len && message.warn('用户名不能为空')
+  return !!len
+}
