@@ -2,6 +2,9 @@ import React from 'react'
 import { Dropdown, Menu, message } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import { logout } from 'services/user'
+import { useSelector, shallowEqual } from 'react-redux'
+import { IRootState } from 'store/type'
+import { INavBarStore } from './store/type'
 
 const AvatarMenu: React.FC = () => {
   const navigate = useNavigate()
@@ -23,10 +26,21 @@ const AvatarMenu: React.FC = () => {
 }
 
 const CpnNavBarAvatarMenu: React.FC = () => {
+  const { userInfo } = useSelector<IRootState, INavBarStore>(
+    (state) => ({
+      pathList: state.navPath.pathList,
+      userInfo: state.navPath.userInfo
+    }),
+    shallowEqual
+  )
+
   return (
     <Dropdown overlay={<AvatarMenu />}>
       <img
-        src="https://qcq5h7.file.qingfuwucdn.com/file/fa8a9aec55040644_1643707699523.png"
+        src={
+          userInfo.avatar ||
+          'https://qcq5h7.file.qingfuwucdn.com/file/fa8a9aec55040644_1643707699523.png'
+        }
         alt=""
       />
     </Dropdown>

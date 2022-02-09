@@ -14,7 +14,7 @@ export function validPhoneNumber(phone: string | number) {
 }
 
 export function validUserInfo(preInfo: any, curInfo: any) {
-  const finalInfo = preInfo
+  const finalInfo = { ...curInfo }
   for (let key in curInfo) {
     if (curInfo[key] === preInfo[key]) {
       Reflect.deleteProperty(finalInfo, key)

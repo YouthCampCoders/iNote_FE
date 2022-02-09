@@ -1,11 +1,12 @@
 import React, { CSSProperties, useEffect, useState } from 'react'
 import CpnBlockContainer from 'components/CpnBlockContainer'
-import { Typography, Form, Input, Button, Avatar, message, Upload } from 'antd'
-import { changeUserInfo, getUserInfo } from 'services/user'
-// import { Dispatch, SetStateAction } from 'react'
-import { validUserInfo, validUserName } from 'utils/validMethod'
+import { Typography, Form, Input, Button, Avatar, Upload } from 'antd'
+import { getUserInfo } from 'services/user'
+import { validUserName } from 'utils/validMethod'
 import styles from './SettingMain.module.less'
 import { uploadFile } from 'services/file'
+import { useDispatch } from 'react-redux'
+import { changeUserinfoAction } from 'components/CpnNavBar/store/actionCreators'
 
 const { Text } = Typography
 const { TextArea } = Input
@@ -29,6 +30,8 @@ const SettingMain: React.FC = () => {
   const [info, setInfo] = useState(infoVal)
   // 对比默认
   const [defaultInfo, setDefaultInfo] = useState(infoVal)
+  // 修改redux
+  const dispatch = useDispatch()
 
   // 获取用户信息
   useEffect(() => {
@@ -114,8 +117,7 @@ const SettingMain: React.FC = () => {
           <Form.Item>
             <Button
               onClick={async () => {
-                ;(await changeUserInfo(validUserInfo(info, defaultInfo))) &&
-                  message.success('修改成功')
+                dispatch(changeUserinfoAction(defaultInfo, info))
               }}
             >
               提交修改
