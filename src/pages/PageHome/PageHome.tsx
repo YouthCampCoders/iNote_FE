@@ -39,7 +39,7 @@ const PageHome: React.FC = (props) => {
 
   useEffect(() => {
     ;(async () => {
-      const res = await getNoteList('', '', true)
+      const res = await getNoteList('', '')
       setNote(res[0])
     })()
   }, [])
