@@ -71,7 +71,7 @@ export const logout = () => {
     const res = await request.post<IBaseResult>({
       url: 'user/logout'
     })
-    res.success && cache.clearCache()
+    res.success && cache.deleteCache('__userinfo__')
     resolve(res.success)
   })
 }
@@ -97,10 +97,11 @@ export const getUserInfo = () => {
  *  avatar: 头像
  *  intro: 自我介绍
  */
-export const changeUserInfo = () => {
+export const changeUserInfo = (changeInfo: any) => {
   return new Promise<boolean>(async (resolve, reject) => {
     const res = await request.put<IBaseResult>({
-      url: 'user/info'
+      url: 'user/info',
+      data: changeInfo
     })
     resolve(res.success)
   })

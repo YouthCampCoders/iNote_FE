@@ -15,7 +15,9 @@ const AvatarMenu: React.FC = () => {
   }
   return (
     <Menu>
-      <Menu.Item onClick={userLogout}>退出登录</Menu.Item>
+      <Menu.Item onClick={userLogout} key="退出登录">
+        退出登录
+      </Menu.Item>
     </Menu>
   )
 }
@@ -24,7 +26,7 @@ const CpnNavBarAvatarMenu: React.FC = () => {
   return (
     <Dropdown overlay={<AvatarMenu />}>
       <img
-        src="https://lf-cdn-tos.bytescm.com/obj/static/xitu_extension/static/gold.981a5510.svg"
+        src="https://qcq5h7.file.qingfuwucdn.com/file/fa8a9aec55040644_1643707699523.png"
         alt=""
       />
     </Dropdown>
