@@ -2,7 +2,10 @@ import Request from './baseRequest'
 import { nanoid } from 'nanoid'
 import cache from 'utils/cache'
 
-const baseURL = 'https://qcq5h7.app.cloudendpoint.cn/'
+const baseURL = {
+  dev: '',
+  test: 'https://qcq5h7.app.cloudendpoint.cn/'
+}
 
 const uuid = cache.getCache('__uuid__')
 if (!uuid) {
@@ -10,11 +13,11 @@ if (!uuid) {
 }
 
 const _Request = new Request({
-  baseURL,
+  baseURL: baseURL.test,
   timeout: 10000,
   headers: {
     'x-tt-session-v2': uuid
-  },
+  }
 })
 
 export default _Request
