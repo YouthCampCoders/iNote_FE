@@ -25,6 +25,7 @@ const PageHome: React.FC = (props) => {
     console.log('组件被点击')
     return ''
   }
+  const markdown = `# Hello, *World*!`;
 
   return (
     <div className="page-home-wrapper">
@@ -37,7 +38,7 @@ const PageHome: React.FC = (props) => {
           
           <div className="content__main">
             <button className={ isEdit ? 'new-btn hidden' : 'new-btn' } onClick={createNote}>记下新的笔记</button>
-            <ReactMarkdown>#Hello, *world*!</ReactMarkdown>
+            <ReactMarkdown children={markdown}></ReactMarkdown>
           </div>
         </div>
 
