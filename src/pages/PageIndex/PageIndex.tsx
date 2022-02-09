@@ -26,13 +26,15 @@ const PageIndex: React.FC = (props) => {
         <div className="content">
           <p className="name">iNote</p>
           <p className="slogan">You Note, We Code!</p>
-          <button className="login-btn" onClick={getStart}>Get Start</button>
+          <button className="login-btn" onClick={getStart}>
+            Get Start
+          </button>
         </div>
         <div className="show">
-          <img src={illustration}/>
+          <img src={illustration} alt="" />
         </div>
       </div>
-      {isLogin ? <CpnLogin /> : ''}
+      {isLogin ? <CpnLogin closeFn={setIsLogin} /> : ''}
       <div className="index-second">
         <div className="slogan">
           <p>You Note, We Code!</p>
@@ -42,21 +44,25 @@ const PageIndex: React.FC = (props) => {
         <div className="content">
           <div className="card">
             <div className="card__header">
-              <img src={ iconGraphic } alt="" className="card__icon"/>
+              <img src={iconGraphic} alt="" className="card__icon" />
               <span className="card__title">艾宾浩斯遗忘曲线</span>
             </div>
             <div className="card__content">
-              <p>书写下的笔记不应该书写完就去吃灰，iNote结合艾宾浩斯遗忘曲线规律进行笔记推送，让你的笔记不只存在于iNote，更存在于你的大脑！</p>
+              <p>
+                书写下的笔记不应该书写完就去吃灰，iNote结合艾宾浩斯遗忘曲线规律进行笔记推送，让你的笔记不只存在于iNote，更存在于你的大脑！
+              </p>
             </div>
           </div>
 
           <div className="card">
             <div className="card__header">
-              <img src={ iconWrite } alt="" className="card__icon"/>
+              <img src={iconWrite} alt="" className="card__icon" />
               <span className="card__title">沉浸笔记书写体验</span>
             </div>
             <div className="card__content">
-              <p>完善的编辑器让你在书写时能够无需关心其他的事情，沉浸于自己的思路。源于Typora，不止于Typora！完美支持md语法，让你的书写更加流畅！</p>
+              <p>
+                完善的编辑器让你在书写时能够无需关心其他的事情，沉浸于自己的思路。源于Typora，不止于Typora！完美支持md语法，让你的书写更加流畅！
+              </p>
             </div>
           </div>
         </div>

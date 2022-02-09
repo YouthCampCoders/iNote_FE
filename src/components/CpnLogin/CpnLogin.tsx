@@ -4,8 +4,10 @@ import { Button, message } from 'antd'
 import { PhoneLogin, UsernameLogin } from './CpnLoginMethod'
 import { loginWithPhone } from 'services/user'
 import { useNavigate } from 'react-router-dom'
+import { ICpnLoginProps } from './type'
 
-const CpnLogin: React.FC = (props) => {
+const CpnLogin: React.FC<ICpnLoginProps> = (props) => {
+  const { closeFn } = props
   // 登录信息相关
   const [phone, setPhone] = useState('')
   const [username, setUsername] = useState('')
@@ -32,8 +34,11 @@ const CpnLogin: React.FC = (props) => {
   }
 
   return (
-    <div className={style['login']}>
-      <div className={style['login__center']}>
+    <div className={style['login']} onClick={() => closeFn(false)}>
+      <div
+        className={style['login__center']}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className={style['login__title']}>iNote Login</div>
         <div className={style['login__main']}>
           {!cur ? (
