@@ -2,7 +2,7 @@ import cache from 'utils/cache'
 import * as ActionTypes from './contants'
 import { INavBarStore } from './type'
 const { _id, avatar, username, intro, phoneNumber } =
-  cache.getCache('__userinfo__')
+  cache.getCache('__userinfo__') || {}
 
 const defaultState: INavBarStore = {
   pathList: ['home'],
