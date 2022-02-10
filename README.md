@@ -1,35 +1,31 @@
-### 项目依赖工具
+**💦 项目依赖包**
+- 依赖管理 **yarn** 
+- 路由跳转 **react-router-dom**
+- 代码风格统一 **prettier**
+- 样式库 **AntDesign** 
+- CSS 预编译 **less** 
+- 项目配置 **craco** 
+- 请求封装 **axios** 
+- 状态管理 **redux** 
 
-> 除了 react react-dom 等核心以外用到的包
-
-- **yarn** 依赖管理
-- **react-router-dom** 路由跳转
-- **prettier** 代码风格统一
-- **AntDesign** 样式库
-- **less** CSS 拓展
-- **craco** 项目配置
-- **axios** 请求封装
-- **redux** 状态管理
-
-### 项目启动
-
+**🌱 拉取代码**
 ```
 git clone https://github.com/YouthCampCoders/iNote_FE.git
 ```
 
-安装 yarn
+**☘ 安装 yarn**
 
 ```shell
 npm install yarn -g
 ```
 
-安装依赖
+**🌷 安装依赖**
 
 ```shell
 yarn install
 ```
 
-启动项目
+**🌺 启动项目**
 
 ```shell
 cd ./INote_FE
