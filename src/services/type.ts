@@ -30,7 +30,8 @@ export interface IUserLoginResult {
   updatedAt: number
   loginAt: number
   expireAt: number
-  tags: string[]
+  tags?: string[]
+  years?: string[]
 }
 
 export interface IUserLoginRootResult extends IBaseResult {

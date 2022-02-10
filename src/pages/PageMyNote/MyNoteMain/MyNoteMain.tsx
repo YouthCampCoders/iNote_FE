@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CpnBlockContainer from 'components/CpnBlockContainer'
 import NoteContentListGenerator from './NoteContentListGenerator'
 import NoteTagListGenerator from './NoteTagListGenerator'
@@ -6,23 +6,34 @@ import { Typography } from 'antd'
 import { useSelector, shallowEqual } from 'react-redux'
 import { IRootState } from 'store/type'
 import { INoteListItemRootResult } from 'services/type'
+import { getUserInfo } from 'services/user'
 
 const { Text } = Typography
-const NoteTagInfo = [
-  {
-    title: '按标签分',
-    list: ['未分类', '随笔记录', '日常生活', '读书笔记']
-  },
-  {
-    title: '按年份分',
-    list: ['2022', '2021']
-  }
-]
+// const NoteTagInfo =
 
 const MyNoteMain: React.FC = (props) => {
-  const [indexList, setIndexList] = useState(
-    new Array(NoteTagInfo.length).fill(0)
-  )
+  const [NoteTagInfo, setNoteTagInfo] = useState([
+    {
+      title: '按标签分',
+      list: ['标签']
+    },
+    {
+      title: '按年份分',
+      list: ['2022']
+    }
+  ])
+
+  const [indexList, setIndexList] = useState(new Array(2).fill(0))
+
+  useEffect(() => {
+    ;(async () => {
+      const { tags, years } = await getUserInfo()
+      setNoteTagInfo([
+        { title: '按标签分', list: tags! },
+        { title: '按年份分', list: years! }
+      ])
+    })()
+  }, [])
 
   const { list } = useSelector<IRootState, INoteListItemRootResult>(
     (state) => ({

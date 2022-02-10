@@ -57,6 +57,7 @@ export const addNewNote = (
   needPush: boolean
 ) => {
   return new Promise<boolean>(async (resolve, reject) => {
+    tag = tag.length ? tag : '未分类'
     const res = await request.post<IBaseResult>({
       url: 'note',
       data: {

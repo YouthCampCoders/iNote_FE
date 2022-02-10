@@ -10,8 +10,8 @@ import cache from 'utils/cache'
 import styles from './PageWrite.module.less'
 
 const PageWrite: React.FC = () => {
-  useDocumentTitle('新建笔记')
   const detail = cache.getCache('__modify__')
+  useDocumentTitle(detail ? '修改笔记' : '新建笔记')
   const navigate = useNavigate()
   const [src, setSrc] = useState(
     detail

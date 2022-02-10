@@ -101,7 +101,7 @@ const CpnNoteCard: React.FC<ICpnNoteCardProps> = (props) => {
         headStyle={{ ...headStyle }}
         bodyStyle={{ ...bodyStyle } as React.CSSProperties}
       >
-        <Text ellipsis>{content.replace(/<\/?\w+>/g, '')}</Text>
+        <Text ellipsis>{content.replace(/<[^>]+>/g, '')}</Text>
         <Button type="primary" style={buttonStyle}>
           {`#${tag}`}
         </Button>
