@@ -4,6 +4,7 @@ import { ICpnNoteCardProps } from './type'
 import style from './CpnNoteCard.module.less'
 import { useNavigate } from 'react-router-dom'
 import cache from 'utils/cache'
+import { marked } from 'marked'
 
 const { Text } = Typography
 const headStyle = {
@@ -101,7 +102,7 @@ const CpnNoteCard: React.FC<ICpnNoteCardProps> = (props) => {
         headStyle={{ ...headStyle }}
         bodyStyle={{ ...bodyStyle } as React.CSSProperties}
       >
-        <Text ellipsis>{content.replace(/<[^>]+>/g, '')}</Text>
+        <Text ellipsis>{marked.parse(content).replace(/<[^>]+>/g, '')}</Text>
         <Button type="primary" style={buttonStyle}>
           {`#${tag}`}
         </Button>

@@ -5,6 +5,7 @@ import CpnBlockContainer from 'components/CpnBlockContainer'
 import { Typography, Button } from 'antd'
 import style from './PageNoteDetail.module.less'
 import { useNavigate } from 'react-router-dom'
+import { marked } from 'marked'
 
 const { Text, Paragraph } = Typography
 
@@ -31,7 +32,9 @@ const PageNoteDetail: React.FC = (props) => {
             修改笔记
           </Button>
           <Paragraph>
-            <div dangerouslySetInnerHTML={{ __html: detail.content }}></div>
+            <div
+              dangerouslySetInnerHTML={{ __html: marked.parse(detail.content) }}
+            ></div>
           </Paragraph>
         </CpnBlockContainer>
       </div>

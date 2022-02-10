@@ -27,10 +27,12 @@ const MyNoteMain: React.FC = (props) => {
 
   useEffect(() => {
     ;(async () => {
-      const { tags, years } = await getUserInfo()
+      let { tags, years } = await getUserInfo()
+      tags = tags || []
+      years = years || []
       setNoteTagInfo([
-        { title: '按标签分', list: tags! },
-        { title: '按年份分', list: years! }
+        { title: '按标签分', list: tags },
+        { title: '按年份分', list: years }
       ])
     })()
   }, [])

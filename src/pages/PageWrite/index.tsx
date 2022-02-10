@@ -35,7 +35,8 @@ const PageWrite: React.FC = () => {
   }
   const submit = () => {
     // 提交HTML代码
-    const html = marked.parse(src)
+    // const html = marked.parse(src)
+    const html = src
     setHtmlSrc(html)
     setSubmitShow(true)
   }

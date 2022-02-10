@@ -45,7 +45,7 @@ const PageHome: React.FC = (props) => {
   useEffect(() => {
     ;(async () => {
       const res = await getNoteList('', '')
-      setNote(res.pop()!)
+      setNote(res && res.pop()!)
     })()
   }, [])
 
@@ -79,7 +79,7 @@ const PageHome: React.FC = (props) => {
 
             <div className="notes__main">
               {/* <NoteCard onClick={toDetail} /> */}
-              <CpnNoteCard {...{ ...note, id: note._id }} />
+              {note && <CpnNoteCard {...{ ...note, id: note._id }} />}
             </div>
           </div>
 
