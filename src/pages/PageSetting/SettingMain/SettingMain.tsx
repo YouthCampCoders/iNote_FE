@@ -48,7 +48,7 @@ const SettingMain: React.FC = () => {
         intro,
         avatar:
           avatar ??
-          'https://qcq5h7.file.qingfuwucdn.com/file/fa8a9aec55040644_1643707699523.png',
+          'https://qcq5h7.file.qingfuwucdn.com/file/c02d3ac8c5ca0524_1644456590487.png',
         email
       }
 

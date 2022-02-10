@@ -1,8 +1,10 @@
 .detail {
   width: 100%;
   background-color: #f2f7fc;
+
   &__main {
     display: flex;
+    position: relative;
     width: 1200px;
     margin: 0 auto;
     padding: 25px 0 0;
@@ -12,6 +14,12 @@
     .main__title {
       display: block;
       font-size: 20px;
+    }
+
+    .main__modify {
+      position: absolute;
+      top: 50px;
+      right: 50px;
     }
   }
 }

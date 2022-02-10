@@ -7,7 +7,7 @@ export const BreadListMap: IBreadcrumbList = {
   },
   ndetail: {
     title: '笔记详情',
-    to: '/mynote/ndetail'
+    to: 'ndetail'
   },
   notify: {
     title: '笔记提醒',
@@ -24,5 +24,9 @@ export const BreadListMap: IBreadcrumbList = {
   home: {
     title: '首页',
     to: '/home'
+  },
+  write: {
+    title: '首页',
+    to: '/write'
   }
 }

@@ -1,6 +1,7 @@
 import './index.less'
-import React, { SetStateAction, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import NoteCard from './noteCard'
+import { useNavigate } from 'react-router-dom'
 import CpnNoteCard from 'components/CpnNoteCard'
 import iconWeChat from 'assets/images/PageHome/wechat.svg'
 import iconDouYin from 'assets/images/PageHome/douyin.svg'
@@ -8,17 +9,19 @@ import iconWeiBo from 'assets/images/PageHome/weibo.svg'
 import iconTwitter from 'assets/images/PageHome/twitter.svg'
 import useDocumentTitle from 'hooks/useDocumentTitle'
 import { getNoteList } from 'services/mynote'
+import cache from 'utils/cache'
 
 const initProp = {
-  _id: '1',
-  title: 'iNote第一个笔记',
-  content: 'iNote用起来还不错',
-  tag: '随笔记录'
+  _id: '',
+  title: '',
+  content: '',
+  tag: ''
 }
 
 const PageHome: React.FC = (props) => {
-  const [isEdit, setIsEdit] = useState(false)
+  const [isEdit] = useState(false)
   const [note, setNote] = useState(initProp)
+  const navigate = useNavigate()
   useDocumentTitle('写点什么吧')
   // const getNotesMainHeight = () => {
   //   console.log('getNotesMainHeight invoke')
@@ -30,7 +33,9 @@ const PageHome: React.FC = (props) => {
   // getNotesMainHeight()
 
   const createNote = () => {
-    setIsEdit(true)
+    // setIsEdit(true)
+    cache.deleteCache('__modify__')
+    navigate('/write')
   }
   // const toDetail = () => {
   //   console.log('组件被点击')
@@ -40,7 +45,7 @@ const PageHome: React.FC = (props) => {
   useEffect(() => {
     ;(async () => {
       const res = await getNoteList('', '')
-      setNote(res[0])
+      setNote(res.pop()!)
     })()
   }, [])
 

@@ -96,12 +96,12 @@ const CpnNoteCard: React.FC<ICpnNoteCardProps> = (props) => {
     >
       <Card
         hoverable
-        title={title}
+        title={title || '未命名'}
         bordered={/* light  */ false}
         headStyle={{ ...headStyle }}
         bodyStyle={{ ...bodyStyle } as React.CSSProperties}
       >
-        <Text ellipsis>{content}</Text>
+        <Text ellipsis>{content.replace(/<\/?\w+>/g, '')}</Text>
         <Button type="primary" style={buttonStyle}>
           {`#${tag}`}
         </Button>

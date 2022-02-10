@@ -48,11 +48,23 @@ export const getNoteList = (year: string, tag: string, needPush?: boolean) => {
  *  title: 笔记标题
  *  content: 笔记内容
  *  needPush: 是否需要推送
+ *  tag：笔记的标签
  */
-export const addNewNote = () => {
+export const addNewNote = (
+  title: string,
+  content: string,
+  tag: string,
+  needPush: boolean
+) => {
   return new Promise<boolean>(async (resolve, reject) => {
     const res = await request.post<IBaseResult>({
-      url: 'note'
+      url: 'note',
+      data: {
+        title,
+        content,
+        tag,
+        needPush
+      }
     })
 
     resolve(res.success)
@@ -85,10 +97,16 @@ export const deleteNote = () => {
  *  content: 笔记内容
  *  needPush: 是否需要推送
  */
-export const modifyNote = () => {
+export const modifyNote = (
+  _id: string,
+  title: string,
+  content: string,
+  needPush: string | boolean
+) => {
   return new Promise<boolean>(async (resolve, reject) => {
     const res = await request.put<IBaseResult>({
-      url: 'note'
+      url: `note/${_id}`,
+      data: { title, content, needPush }
     })
 
     resolve(res.success)
