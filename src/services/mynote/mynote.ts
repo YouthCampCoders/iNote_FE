@@ -13,12 +13,14 @@ import request from 'services'
  *  tag 标签
  *  needPush 是否需要推送
  */
+
 export const getNoteList = (year: string, tag: string, needPush?: boolean) => {
   return new Promise<INoteListItemResult[]>(async (resolve, reject) => {
     const paramY = year.length ? `year=${year}&` : ''
     const paramT = tag.length ? `tag=${tag}&` : ''
     // 判断是否是 boolean 类型 若为 undefined 表示未传
     const paramN = typeof needPush === 'boolean' ? `needPush=${needPush}&` : ''
+
     const res = await request.get<INoteListItemRootResult>({
       url: 'note?' + paramY + paramT + paramN
     })

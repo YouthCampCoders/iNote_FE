@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 // @ts-ignore: 该库没有类型文件, 暂时忽律以避免报错
 import Markdown from 'react-mini-markdown'
-import { marked } from 'marked'
+// import { marked } from 'marked'
 import useDocumentTitle from 'hooks/useDocumentTitle'
-import { Button, Modal, Input, Switch, Form, message } from 'antd'
+import { Button, Modal, Input, Switch, Form, message, AutoComplete } from 'antd'
 import { addNewNote, modifyNote } from 'services/mynote'
 import { useNavigate } from 'react-router-dom'
 import cache from 'utils/cache'
 import styles from './PageWrite.module.less'
+const options = cache.getCache('__tags__') || [{ value: '未分类' }]
 
 const PageWrite: React.FC = () => {
   const detail = cache.getCache('__modify__')
@@ -19,7 +20,6 @@ const PageWrite: React.FC = () => {
       : `# Title
   快来记笔记吧~`
   )
-  // 判断笔记类型
 
   // 提交相关
   const [htmlSrc, setHtmlSrc] = useState('')
@@ -107,15 +107,17 @@ const PageWrite: React.FC = () => {
               ></Input>
             </Form.Item>
             <Form.Item label="标签">
-              <Input
-                maxLength={6}
+              <AutoComplete
+                // maxLength={6}
                 placeholder="请输入文章的标签"
                 value={tag}
-                onChange={(e) => {
-                  e.preventDefault()
-                  setTag(e.target.value)
+                options={options}
+                onChange={(text) => {
+                  if (text.length <= 8) {
+                    setTag(text)
+                  }
                 }}
-              ></Input>
+              ></AutoComplete>
             </Form.Item>
             <Form.Item label="是否需要推送">
               <Switch

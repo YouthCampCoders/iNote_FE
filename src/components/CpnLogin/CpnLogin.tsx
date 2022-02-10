@@ -57,7 +57,7 @@ const CpnLogin: React.FC<ICpnLoginProps> = (props) => {
               color: '#B8C1EC',
               fontWeight: 700,
               borderRadius: '10px',
-              height: '40px'
+              height: '50px'
             }}
             onClick={() => {
               login(cur, { phone, code })

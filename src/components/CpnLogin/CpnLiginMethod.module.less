@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 30px 0 20px;
+  padding: 30px 0 0px;
 
   & > div {
     display: flex;
@@ -14,16 +14,18 @@
       padding: 8px 20px 8px 10px;
       font-size: 16px;
       color: #232946;
-      letter-spacing: 5px;
+      // letter-spacing: 5px;
+      font-weight: 700;
     }
 
     input {
       flex: 1;
       // margin-right: 20px;
-      border: 1px solid #232946;
+      border: 2px solid #232946;
       border-radius: 8px;
       box-sizing: border-box;
       padding: 10px;
+      font-size: 18px;
     }
   }
 
@@ -35,14 +37,20 @@
   }
 
   &__code {
-    margin: 0 0 0 10px !important;
-    padding: 10px 25px;
+    margin: 0 0 0 25px !important;
+    padding: 15px 25px;
     border-radius: 8px;
     font-weight: 700;
     border: none;
     cursor: pointer;
-    color: #b8c1ec !important;
+    color: #b8c1ec;
     background-color: #232946;
+    letter-spacing: 2px;
+    &:disabled {
+      background-color: #b8c1ec;
+      color: #232946;
+      cursor: wait;
+    }
   }
 
   &__other {

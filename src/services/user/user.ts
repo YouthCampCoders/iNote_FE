@@ -41,7 +41,17 @@ export const loginWithPhone = (
       }
     })
 
-    res.success && cache.setCache('__userinfo__', res.userInfo)
+    if (res.success) {
+      cache.setCache('__userinfo__', res.userInfo)
+      const tags = res.userInfo.tags
+      cache.setCache(
+        '__tags__',
+        tags?.map((item) => ({
+          value: item
+        }))
+      )
+    }
+
     resolve(res.success)
   })
 }
@@ -85,6 +95,17 @@ export const getUserInfo = () => {
     const res = await request.get<IUserLoginRootResult>({
       url: 'user/info'
     })
+
+    if (res.success) {
+      cache.setCache('__userinfo__', res.userInfo)
+      const tags = res.userInfo.tags
+      cache.setCache(
+        '__tags__',
+        tags?.map((item) => ({
+          value: item
+        }))
+      )
+    }
     resolve(res.userInfo)
   })
 }
