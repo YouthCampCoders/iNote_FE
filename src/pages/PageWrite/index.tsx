@@ -8,9 +8,9 @@ import { addNewNote, modifyNote } from 'services/mynote'
 import { useNavigate } from 'react-router-dom'
 import cache from 'utils/cache'
 import styles from './PageWrite.module.less'
-const options = cache.getCache('__tags__') || [{ value: '未分类' }]
 
 const PageWrite: React.FC = () => {
+  const options = cache.getCache('__tags__') || [{ value: '未分类' }]
   const detail = cache.getCache('__modify__')
   useDocumentTitle(detail ? '修改笔记' : '新建笔记')
   const navigate = useNavigate()
@@ -113,7 +113,7 @@ const PageWrite: React.FC = () => {
                 value={tag}
                 options={options}
                 onChange={(text) => {
-                  if (text.length <= 8) {
+                  if (text.length <= 12) {
                     setTag(text)
                   }
                 }}
