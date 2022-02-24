@@ -20,7 +20,7 @@ const NotifyListGenerator: React.FC<INotifyListGeneratorProps> = (props) => {
               key={_id}
               onDelete={onDelete}
               onModify={onModify}
-              time={timeParser(schedule[round])}
+              // time={timeParser(schedule[round])}
             />
           )
         })

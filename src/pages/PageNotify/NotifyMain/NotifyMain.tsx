@@ -33,11 +33,13 @@ const NotifyMain: React.FC = (props) => {
 
   const { list } = useSelector<IRootState, INoteListItemRootResult>(
     (state) => ({
-      list: state.notify.list,
+      list: state.notify.noteList,
       success: state.notify.success
     }),
     shallowEqual
   )
+
+  console.log('list: ', list);
 
   const dispatch = useDispatch()
   useEffect(() => {
