@@ -33,7 +33,7 @@ const NotifyMain: React.FC = (props) => {
 
   const { list } = useSelector<IRootState, INoteListItemRootResult>(
     (state) => ({
-      list: state.notify.noteList,
+      list: state.notify.list,
       success: state.notify.success
     }),
     shallowEqual
